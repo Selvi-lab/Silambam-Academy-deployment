@@ -562,7 +562,7 @@ function Gallery() {
                       ‹
                     </label>
                     <a href="#contact" className="rounded-full bg-gold px-5 py-2 text-sm font-semibold text-umber">
-                      Enrol
+                      Enroll
                     </a>
                     <label
                       htmlFor={`p${(i + 1) % n}`}
