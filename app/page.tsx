@@ -202,7 +202,7 @@ function Nav() {
             </li>
           ))}
           <li>
-            <a href="#join" className="rounded-md bg-ember px-4 py-2 text-sm font-bold text-white hover:bg-rust">
+            <a href="#join" className="rounded-lg border-2 border-[#E3A72F] bg-[#E3A72F] px-4 py-2 text-sm font-bold text-[#1C120C] shadow-[0_0_20px_rgba(227,167,47,0.4)] transition-colors hover:bg-[#F2BC4E]"
               Join now
             </a>
           </li>
@@ -728,7 +728,7 @@ function Join() {
           Hundreds of students have changed their lives through Silambam. A new three-month beginner batch starts every month, and seats are limited.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-4">
-          <Btn href={TEL} solid>Enrol now</Btn>
+          <Btn href={TEL} solid>Enroll now</Btn>
           <Btn href="#training">Browse programs</Btn>
         </div>
       </div>
@@ -785,7 +785,7 @@ function FloatingCall() {
       aria-label="Call the academy to enrol"
       className="fixed bottom-4 right-4 z-40 flex items-center gap-2 rounded-full bg-ember px-4 py-3 text-sm font-bold text-white shadow-lg shadow-black/40 hover:bg-rust sm:bottom-5 sm:right-5 sm:px-5 sm:text-base"
     >
-      <span aria-hidden>📞</span> Enrol Today
+      <span aria-hidden>📞</span> Enroll Today
     </a>
   );
 }
