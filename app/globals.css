@@ -7,6 +7,8 @@
 html { scroll-behavior: smooth; scroll-padding-top: 4.5rem; }
 body { background: #1C120C; color: #E9D6AE; }
 
+html, body { max-width: 100%; overflow-x: hidden; }
+
 /* One orchestrated moment: the hero banner rises out of the dust on load */
 @keyframes dust-rise {
   from { opacity: 0; transform: scale(1.04); filter: blur(6px); }
@@ -76,3 +78,4 @@ body { background: #1C120C; color: #E9D6AE; }
   .orbit-item, .panel .card, .panel .rise { transition: none; }
   .ember, .spin-ring { animation: none; }
 }
+
