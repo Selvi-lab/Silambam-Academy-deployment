@@ -202,7 +202,7 @@ function Nav() {
             </li>
           ))}
           <li>
-            <a href="#join" className="rounded-lg border-2 border-[#E3A72F] bg-[#E3A72F] px-4 py-2 text-sm font-bold text-[#1C120C] shadow-[0_0_20px_rgba(227,167,47,0.4)] transition-colors hover:bg-[#F2BC4E]">
+            <a href="#join" className="mt-2 block rounded-lg border-2 border-[#E3A72F] bg-[#E3A72F] px-3 py-2 text-center font-bold text-[#1C120C] hover:bg-[#F2BC4E]">
               Join now
             </a>
           </li>
