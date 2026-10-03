@@ -212,7 +212,7 @@ function Nav() {
           <summary className="cursor-pointer list-none rounded-md border border-gold/40 px-3 py-1.5 text-gold marker:hidden">
             Menu
           </summary>
-          <ul className="absolute right-0 mt-2 w-48 space-y-1 rounded-md border border-gold/30 bg-umber p-3">
+          <ul className="absolute right-0 z-50 mt-2 w-56 space-y-1 rounded-lg border border-gold/40 bg-[#1C120C] p-3 shadow-2xl shadow-black/60">
             {NAV.map(([l, h]) => (
               <li key={h}>
                 <a href={h} className="block py-1 text-sand hover:text-gold">{l}</a>
