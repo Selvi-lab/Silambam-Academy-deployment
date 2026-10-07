@@ -578,6 +578,15 @@ function Training() {
         aria-hidden
         className="absolute inset-0 bg-gradient-to-b from-[#160A04]/90 via-[#160A04]/80 to-[#160A04]/95"
       />
+      {/* Background image: banner, dimmed, focused on the fighter (right side) */}
+      <Image
+        src="/coming-up.png"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-right brightness-[0.1]"
+      />
+
 
       {/* Background atmosphere */}
       <div className="pointer-events-none absolute inset-0">
@@ -1060,6 +1069,15 @@ function Gallery() {
       id="gallery"
       className="relative scroll-mt-20 overflow-hidden bg-[#160d08] py-20 sm:py-28"
     >
+{/* Background image: banner, dimmed, focused on the fighter (right side) */}
+      <Image
+        src="/coming-up.png"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-right brightness-[0.1]"
+      />
+
       {/* Background glow */}
       <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-600/10 blur-[140px]" />
 
@@ -1350,6 +1368,15 @@ function Join() {
           backgroundImage:
             "linear-gradient(45deg,#FFD84D 1px,transparent 1px),linear-gradient(-45deg,#FFD84D 1px,transparent 1px)",
           backgroundSize: "34px 34px",
+        }}
+      />
+
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[1100px] max-w-[200%] -translate-x-1/2 -translate-y-[40%] opacity-30 [mask-image:radial-gradient(circle,black_20%,transparent_70%)]"
+        style={{
+          background:
+            "repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,200,60,0.55) 0deg 2deg, transparent 2deg 12deg)",
         }}
       />
 
