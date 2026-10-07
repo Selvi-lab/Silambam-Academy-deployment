@@ -378,9 +378,6 @@ function Hero() {
   );
 }
 
-
-
-
 function About() {
   return (
     <section
@@ -463,7 +460,6 @@ function About() {
     </section>
   );
 }
-
 
 
 function Why() {
@@ -569,8 +565,6 @@ function Why() {
     </section>
   );
 }
-
-
 
 
 function Training() {
@@ -1138,10 +1132,22 @@ function Gallery() {
                         src={it.img}
                         alt={it.title}
                         fill
-                        priority={i === 0}
+                        aria-hidden
+                        //priority={i === 0}
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         style={{ objectPosition: it.pos ?? "center" }}
-                        className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                        className="scale-125 object-cover opacity-50 blur-2xl"
+                        //className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                      />
+
+                      {/* Main image: auto-fits fully, never cropped */}
+                      <Image
+                         src={it.img}
+                         alt={it.title}
+                         fill
+                         priority={i === 0}
+                         sizes="(max-width: 1024px) 100vw, 50vw"
+                         className="object-contain p-2 transition-transform duration-[1.5s] group-hover:scale-105 sm:p-4"
                       />
 
                       {/* Image overlay */}
