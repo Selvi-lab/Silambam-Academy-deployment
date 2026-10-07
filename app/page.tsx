@@ -1317,12 +1317,39 @@ function Gallery() {
 
 function Join() {
   return (
-    <section id="join" className="scroll-mt-20 bg-umber px-4 py-16 sm:px-5 sm:py-20">
-      <div className="mx-auto max-w-4xl rounded-2xl border border-ember/40 bg-gradient-to-br from-rust/60 to-umber p-8 text-center sm:p-14">
-        <h2 className="glow-text font-display text-3xl text-white sm:text-5xl">Ready to pick up the staff?</h2>
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-sand sm:text-lg">
-          Hundreds of students have changed their lives through Silambam. A new three-month beginner batch starts every month, and seats are limited.
+    <section
+      id="join"
+      className="relative scroll-mt-20 overflow-hidden px-4 py-16 sm:px-5 sm:py-24"
+    >
+      {/* Sunset background */}
+      <Image
+        src="/sunset.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-center"
+      />
+
+      {/* Tint for readability, darker at the bottom like the sea */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/25 to-[#3a1405]/80"
+      />
+
+      {/* Sun glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFE9A0]/30 blur-[90px]" />
+
+      {/* Card */}
+      <div className="relative z-10 mx-auto max-w-4xl rounded-2xl border border-white/30 bg-black/35 p-8 text-center shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-md sm:p-14">
+        <h2 className="glow-text font-display text-3xl text-white sm:text-5xl">
+          Ready to pick up the staff?
+        </h2>
+
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#FFF1D6] sm:text-lg">
+          Hundreds of students have changed their lives through Silambam. A new
+          three-month beginner batch starts every month, and seats are limited.
         </p>
+
         <div className="mt-8 flex flex-wrap justify-center gap-4">
           <Btn href={TEL} solid>Enroll now</Btn>
           <Btn href="#training">Browse programs</Btn>
@@ -1332,43 +1359,78 @@ function Join() {
   );
 }
 
+
 function Footer() {
   return (
-    <footer id="contact" className="scroll-mt-20 border-t border-ember/25 bg-umber pt-14">
-      <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-5 md:grid-cols-4">
-        <div>
-          <div className="flex items-center gap-3">
-            <Logo />
-            <span className="glow-text font-display text-xl text-gold">{SITE.name}</span>
+    <footer
+      id="contact"
+      className="relative scroll-mt-20 overflow-hidden border-t border-white/20 pt-14"
+    >
+      {/* Sunset background */}
+      <Image
+        src="/sunset.jpg"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-bottom"
+      />
+
+      {/* Dark tint so the text stays readable (darker toward the bottom) */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-[#2a0e04]/90"
+      />
+
+      <div className="relative z-10">
+        <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-5 md:grid-cols-4">
+          <div>
+            <div className="flex items-center gap-3">
+              <Logo />
+              <span className="glow-text font-display text-xl text-gold">{SITE.name}</span>
+            </div>
+            <p className="mt-4 text-[#FFF1D6]/85">
+              Tamil staff fighting, taught with discipline, strength and heritage.
+            </p>
           </div>
-          <p className="mt-4 text-sand/75">Tamil staff fighting, taught with discipline, strength and heritage.</p>
+
+          <div>
+            <h3 className="glow-text font-display text-lg text-white">Quick links</h3>
+            <ul className="mt-3 space-y-2 text-[#FFF1D6]/85">
+              {NAV.map(([l, h]) => (
+                <li key={h}>
+                  <a href={h} className="transition hover:text-amber-300">{l}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="glow-text font-display text-lg text-white">Programs</h3>
+            <ul className="mt-3 space-y-2 text-[#FFF1D6]/85">
+              {PROGRAMS.map((p) => <li key={p}>{p}</li>)}
+            </ul>
+          </div>
+
+          <div>
+            <h3 className="glow-text font-display text-lg text-white">Contact us</h3>
+            <ul className="mt-3 space-y-3 text-[#FFF1D6]/85">
+              <li>{SITE.place}</li>
+              <li>
+                <a className="transition hover:text-amber-300" href={TEL}>{SITE.phone}</a>
+              </li>
+              <li className="break-words">
+                <a className="transition hover:text-amber-300" href={`mailto:${SITE.email}`}>
+                  {SITE.email}
+                </a>
+              </li>
+              <li>{SITE.hours}</li>
+            </ul>
+          </div>
         </div>
-        <div>
-          <h3 className="glow-text font-display text-lg text-sand">Quick links</h3>
-          <ul className="mt-3 space-y-2 text-sand/75">
-            {NAV.map(([l, h]) => (
-              <li key={h}><a href={h} className="hover:text-ember">{l}</a></li>
-            ))}
-          </ul>
+
+        <div className="mx-auto mt-12 flex max-w-6xl flex-wrap justify-between gap-2 border-t border-white/20 px-4 py-6 text-sm text-[#FFF1D6]/70 sm:px-5">
+          <p>© 2026 Padaivedu Yudhakalam. All rights reserved.</p>
         </div>
-        <div>
-          <h3 className="glow-text font-display text-lg text-sand">Programs</h3>
-          <ul className="mt-3 space-y-2 text-sand/75">
-            {PROGRAMS.map((p) => <li key={p}>{p}</li>)}
-          </ul>
-        </div>
-        <div>
-          <h3 className="glow-text font-display text-lg text-sand">Contact us</h3>
-          <ul className="mt-3 space-y-3 text-sand/75">
-            <li>{SITE.place}</li>
-            <li><a className="hover:text-ember" href={TEL}>{SITE.phone}</a></li>
-            <li className="break-words"><a className="hover:text-ember" href={`mailto:${SITE.email}`}>{SITE.email}</a></li>
-            <li>{SITE.hours}</li>
-          </ul>
-        </div>
-      </div>
-      <div className="mx-auto mt-12 flex max-w-6xl flex-wrap justify-between gap-2 border-t border-ember/20 px-4 py-6 text-sm text-sand/60 sm:px-5">
-        <p>© 2026 Padaivedu Yudhakalam. All rights reserved.</p>
       </div>
     </footer>
   );
