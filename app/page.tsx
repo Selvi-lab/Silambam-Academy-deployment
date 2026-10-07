@@ -93,23 +93,9 @@ const PROGRAMS = [
   "Youth program",
   "Gymnastics",
 ];
-/*
-const ITEMS = [
-  { img: "/programs/1-single-stick.jpg", video: "/video/1-single-stick.mp4", title: "Single stick", ta: "ஒற்றைக் கம்பு", desc: "One staff, total control." },
-  { img: "/programs/2-double-stick.jpg", video: "/video/2-double-stick.mp4", title: "Double stick", ta: "இரட்டைக் கம்பு", desc: "Two sticks, rhythm and reflex." },
-  { img: "/programs/3-surulvall.jpg", video: "/video/3-surulvall.mp4", title: "Surulvall", ta: "சுருள் வாள்", desc: "The flexible coiled blade." },
-  { img: "/programs/4-vel-kambu.jpg", video: "/video/4-vel-kambu.mp4", title: "Vel Kambu", ta: "வேல் கம்பு", desc: "Spear-staff reach and precision." },
-  { img: "/programs/5-maan-kombu.jpg", video: "/video/5-maan-kombu.mp4", title: "Maan Kombu", ta: "மான் கொம்பு", desc: "Twin buck-horn defence." },
-  { img: "/programs/6-kuthuvarisai.jpg", video: "/video/6-kuthuvarisai.mp4", title: "Kuthuvarisai", ta: "குத்து வரிசை", desc: "Fast strikes and unarmed combinations." },
-  { img: "/programs/7-advance-equipments-techniques.jpg", video: "/video/7-advanced-techniques.mp4", title: "Advanced Techniques", ta: "மேம்பட்ட நுட்பங்கள்", desc: "Advanced weapons and techniques." },
-  { img: "/programs/8-womens-self-defence.jpg", video: "/video/8-womens-self-defence.mp4", title: "Women's Self Defence", ta: "பெண்கள் தற்காப்பு", desc: "Practical protection and confidence." },
-  { img: "/programs/9-youth-program.jpg", video: "/video/9-youth-program.mp4", title: "Youth Program", ta: "இளைஞர் திட்டம்", desc: "Discipline and fitness for young learners." },
-  { img: "/programs/10-gymnastics.jpg", video: "/video/10-gymnastics.mp4", title: "Gymnastics", ta: "ஜிம்னாஸ்டிக்ஸ்", desc: "Flexibility, balance and agility." },
-];
-*/
 
 const ITEMS = [
-  { title: "Single stick", ta: "ஒற்றைக் கம்பு", img: "/programs/1-single-stick.jpg", pos: "50% 30%",
+  { title: "Single stick", ta: "ஒற்றைக் கம்பு", img: "/programs/1-single-stick.jpg", pos: "50% 30%", 
     desc: "The foundation of Silambam. Learn stance, footwork and the core strikes with a single staff." },
   { title: "Double stick", ta: "இரட்டைக் கம்பு", img: "/programs/2-double-stick.jpg", pos: "50% 30%",
     desc: "Train both hands together for speed, rhythm and coordination." },
@@ -121,7 +107,7 @@ const ITEMS = [
     desc: "The twin-horn weapon for close defence and sharp counters." },
   { title: "Kuthuvarisai", ta: "குத்துவரிசை", img: "/programs/6-kuthuvarisai.jpg", pos: "50% 30%",
     desc: "Empty-hand combat built on strikes, blocks and body control." },
-  { title: "Advanced Techniques", ta: "மேம்பட்ட நுட்பங்கள்", img: "/programs/7-advance-equipments-tech....jpg", pos: "50% 30%",
+  { title: "Advanced Techniques", ta: "மேம்பட்ட நுட்பங்கள்", img: "/programs/7-advance-equipments-techniques.jpg", pos: "50% 30%",
     desc: "Higher-level equipment work and technique for experienced students." },
   { title: "Women's Self Defence", ta: "பெண்கள் தற்காப்புக் கலை", img: "/programs/8-womens-self-defence.jpg", pos: "50% 30%",
     desc: "Practical self-defence skills that build confidence and awareness." },
@@ -593,15 +579,6 @@ function Training() {
       id="training"
       className="relative scroll-mt-20 overflow-hidden bg-[#160A04] py-20 sm:py-24"
     >
-      {/* Background image: banner, dimmed (darker than the Why section so the circles stand out) */}
-      <Image
-        src="/why.png"
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover object-center brightness-[0.4]"
-      />
-
       {/* Dark overlay */}
       <div
         aria-hidden
@@ -620,18 +597,14 @@ function Training() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-5">
-
         {/* Heading */}
         <div className="mx-auto max-w-3xl text-center">
-
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.4em] text-[#FF9A1F]">
             Training at Padaivedu
           </p>
-
           <Heading center className="glow-text">
             Programs We Teach
           </Heading>
-
           <p className="mx-auto mt-4 max-w-2xl text-sm leading-7 text-[#E9D6AE]/85 sm:text-base">
             Explore the traditional arts, combat techniques and physical
             disciplines that shape every Padaivedu warrior.
@@ -640,9 +613,7 @@ function Training() {
           {/* Decorative divider */}
           <div className="mx-auto mt-6 flex items-center justify-center gap-3">
             <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#FF8A1F]" />
-
             <span className="h-2.5 w-2.5 rotate-45 border border-[#FFD84D] bg-[#FF7A18]" />
-
             <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#FF8A1F]" />
           </div>
 
@@ -653,7 +624,6 @@ function Training() {
 
         {/* Orbit */}
         <div className="relative mx-auto mt-12 aspect-square w-full max-w-[700px] sm:mt-16">
-
           {/* Outer atmospheric glow */}
           <div className="pointer-events-none absolute left-1/2 top-1/2 h-[68%] w-[68%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FF7A18]/5 blur-3xl" />
 
@@ -682,13 +652,8 @@ function Training() {
               const end = pt(i);
               const a = angle(i) + 0.3;
 
-              const cx = Number(
-                (50 + R * 0.55 * Math.cos(a)).toFixed(2)
-              );
-
-              const cy = Number(
-                (50 + R * 0.55 * Math.sin(a)).toFixed(2)
-              );
+              const cx = Number((50 + R * 0.55 * Math.cos(a)).toFixed(2));
+              const cy = Number((50 + R * 0.55 * Math.sin(a)).toFixed(2));
 
               return (
                 <g key={it.title}>
@@ -723,7 +688,7 @@ function Training() {
             {/* Gold ring */}
             <div className="relative rounded-full border border-[#FFD84D]/50 bg-[#120804] p-2 shadow-[0_0_35px_rgba(255,122,24,0.25)] transition-all duration-500 group-hover:scale-105 group-hover:border-[#FFD84D] group-hover:shadow-[0_0_55px_rgba(255,122,24,0.45)]">
               <Image
-                src="/logo.png"
+                src="/logo.jpeg"
                 alt="Padaivedu Silambam Academy"
                 width={240}
                 height={240}
@@ -755,10 +720,8 @@ function Training() {
                   aria-label={`Watch ${it.title}`}
                   className="group relative block"
                 >
-
                   {/* Circle */}
                   <span className="relative block aspect-square overflow-hidden rounded-full border border-[#FF9A1F]/70 bg-[#211006] p-[3px] shadow-[0_0_0_3px_rgba(255,122,24,0.06)] transition-all duration-500 group-hover:scale-110 group-hover:border-[#FFD84D] group-hover:shadow-[0_0_30px_rgba(255,122,24,0.45)]">
-
                     <span className="relative block h-full w-full overflow-hidden rounded-full">
                       <Image
                         src={it.img}
@@ -771,20 +734,11 @@ function Training() {
                       {/* Image darkening */}
                       <span className="absolute inset-0 bg-black/20 transition-all duration-300 group-hover:bg-black/5" />
                     </span>
-
                   </span>
 
                   {/* Number */}
                   <span className="absolute -left-1 -top-1 grid h-5 w-5 place-items-center rounded-full border border-[#FFD84D]/50 bg-[#211006] text-[8px] font-bold text-[#FFD84D] shadow-lg">
                     {String(i + 1).padStart(2, "0")}
-                  </span>
-
-                  {/* Play button */}
-                  <span
-                    aria-hidden
-                    className="absolute -bottom-1 -right-1 grid h-6 w-6 place-items-center rounded-full border-2 border-[#160A04] bg-gradient-to-br from-[#FF7A18] to-[#F5C518] text-[8px] font-bold text-[#160A04] shadow-[0_0_12px_rgba(255,122,24,0.4)] transition-transform duration-300 group-hover:scale-110"
-                  >
-                    ▶
                   </span>
 
                   {/* Program name */}
@@ -799,7 +753,6 @@ function Training() {
 
         {/* Bottom instruction */}
         <div className="mx-auto mt-8 flex max-w-xl items-center justify-center gap-3 text-center">
-
           <span className="h-px flex-1 bg-gradient-to-r from-transparent to-[#FF8A1F]/30" />
 
           <p className="text-xs uppercase tracking-[0.2em] text-[#E9D6AE]/60">
@@ -807,9 +760,7 @@ function Training() {
           </p>
 
           <span className="h-px flex-1 bg-gradient-to-l from-transparent to-[#FF8A1F]/30" />
-
         </div>
-
       </div>
 
       {/* Program popups */}
@@ -828,37 +779,22 @@ function Training() {
 
           {/* Popup */}
           <div className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-[#FF9A1F]/40 bg-[#1A0C05] p-4 shadow-[0_0_60px_rgba(255,122,24,0.25)] sm:p-5">
-
             {/* Top accent */}
             <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#FF7A18] via-[#FFD84D] to-[#FF7A18]" />
 
             {/* Media */}
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black">
-              {/*{it.video ? (
-                <video
-                  src={it.video}
-                  poster={it.img}
-                  data-popup={`prog-${i}`}
-                  controls
-                  loop
-                  playsInline
-                  preload="none"
-                  className="h-full w-full object-contain"
-                />
-              ) :*/ (
-                <Image
-                  src={it.img}
-                  alt={it.title}
-                  fill
-                  sizes="(min-width:448px) 448px, 90vw"
-                  className="object-contain"
-                />
-              )}
+              <Image
+                src={it.img}
+                alt={it.title}
+                fill
+                sizes="(min-width:448px) 448px, 90vw"
+                className="object-contain"
+              />
             </div>
 
             {/* Content */}
             <div className="px-2 pb-1 pt-5 text-center">
-
               <p className="text-[10px] font-bold uppercase tracking-[0.3em] text-[#FF9A1F]">
                 Training Discipline
               </p>
@@ -866,22 +802,13 @@ function Training() {
               <h3 className="mt-2 font-display text-2xl text-[#FFD84D]">
                 {it.title}
               </h3>
-                {/*
-              <p className="mt-1 text-sm text-[#FF9A1F]">
-                {it.ta}
-              </p>
-              
-              <p className="mx-auto mt-3 max-w-md leading-7 text-[#E9D6AE]/80">
-                {it.desc}
-              </p>
-                */}
+
               <a
                 href="#training"
                 className="mt-5 inline-flex items-center rounded-lg border border-[#FF9A1F]/50 bg-[#FF7A18]/10 px-6 py-2.5 text-sm font-bold text-[#FFD84D] transition-all duration-300 hover:border-[#FFD84D] hover:bg-[#FF7A18]/20"
               >
                 Close
               </a>
-
             </div>
           </div>
         </div>
@@ -899,7 +826,6 @@ function Training() {
         />
 
         <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-[#FF9A1F]/40 bg-[#1A0C05] p-6 text-center shadow-[0_0_60px_rgba(255,122,24,0.25)]">
-
           <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#FF7A18] via-[#FFD84D] to-[#FF7A18]" />
 
           <Image
@@ -933,9 +859,6 @@ function Training() {
     </section>
   );
 }
-
-
-
 
 function Women() {
   return (
@@ -1022,8 +945,6 @@ function Women() {
 }
 
 
-
-
 function Achievements() {
   return (
     <section
@@ -1066,8 +987,6 @@ function Achievements() {
     </section>
   );
 }
-
-
 
 
 function Events() {
@@ -1137,7 +1056,6 @@ function Events() {
     </section>
   );
 }
-
 
 
 function Gallery() {
@@ -1389,8 +1307,6 @@ function Gallery() {
     </section>
   );
 }
-
-
 
 
 function Join() {
