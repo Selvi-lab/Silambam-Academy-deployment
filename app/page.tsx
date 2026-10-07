@@ -1314,38 +1314,64 @@ function Gallery() {
   );
 }
 
-
 function Join() {
   return (
     <section
       id="join"
-      className="relative scroll-mt-20 overflow-hidden px-4 py-16 sm:px-5 sm:py-24"
+      className="relative scroll-mt-20 overflow-hidden bg-[#140803] px-4 py-16 sm:px-5 sm:py-24"
     >
-      {/* Sunset background */}
-      <Image
-        src="/sunset.jpg"
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover object-center"
-      />
-
-      {/* Tint for readability, darker at the bottom like the sea */}
+      {/* Base warm gradient */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-black/10 via-black/25 to-[#3a1405]/80"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,#1a0a04_0%,#2a0f04_50%,#1a0a04_100%)]"
       />
 
-      {/* Sun glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-[#FFE9A0]/30 blur-[90px]" />
+      {/* Sun glow behind the card */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[420px] w-[900px] max-w-[160%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#FFE27A_0%,#FFB020_22%,#FF7A18_45%,transparent_70%)] opacity-50 blur-2xl"
+      />
+
+      {/* Rays fanning out from the center */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-1/2 h-[900px] w-[900px] max-w-[200%] -translate-x-1/2 -translate-y-1/2 opacity-25 [mask-image:radial-gradient(circle,black_15%,transparent_65%)]"
+        style={{
+          background:
+            "repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,200,60,0.55) 0deg 2deg, transparent 2deg 12deg)",
+        }}
+      />
+
+      {/* Fine diamond pattern */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(45deg,#FFD84D 1px,transparent 1px),linear-gradient(-45deg,#FFD84D 1px,transparent 1px)",
+          backgroundSize: "34px 34px",
+        }}
+      />
+
+      {/* Embers */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <span className="absolute left-[10%] top-[30%] h-1.5 w-1.5 rounded-full bg-[#FFB020] shadow-[0_0_12px_4px_rgba(255,160,30,0.7)]" />
+        <span className="absolute left-[22%] top-[72%] h-1 w-1 rounded-full bg-[#FFD84D] shadow-[0_0_10px_3px_rgba(255,216,77,0.7)]" />
+        <span className="absolute left-[85%] top-[28%] h-1 w-1 rounded-full bg-[#FF7A18] shadow-[0_0_10px_3px_rgba(255,122,24,0.7)]" />
+        <span className="absolute left-[90%] top-[68%] h-1.5 w-1.5 rounded-full bg-[#FFB020] shadow-[0_0_12px_4px_rgba(255,160,30,0.7)]" />
+        <span className="absolute left-[70%] top-[85%] h-1 w-1 rounded-full bg-[#FFD84D] shadow-[0_0_10px_3px_rgba(255,216,77,0.7)]" />
+      </div>
 
       {/* Card */}
-      <div className="relative z-10 mx-auto max-w-4xl rounded-2xl border border-white/30 bg-black/35 p-8 text-center shadow-[0_20px_80px_rgba(0,0,0,0.35)] backdrop-blur-md sm:p-14">
+      <div className="relative z-10 mx-auto max-w-4xl rounded-2xl border border-[#FF9A1F]/40 bg-[#160A04]/70 p-8 text-center shadow-[0_0_60px_rgba(255,122,24,0.2)] backdrop-blur-md sm:p-14">
+        {/* Top gold accent line */}
+        <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FFD84D] to-transparent" />
+
         <h2 className="glow-text font-display text-3xl text-white sm:text-5xl">
           Ready to pick up the staff?
         </h2>
 
-        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#FFF1D6] sm:text-lg">
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-8 text-[#F5E5C5]/90 sm:text-lg">
           Hundreds of students have changed their lives through Silambam. A new
           three-month beginner batch starts every month, and seats are limited.
         </p>
