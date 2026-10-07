@@ -5,7 +5,7 @@ import VideoController from "./components/VideoController";
 // ---------- Edit all content here ----------
 const SITE = {
   name: "Padaivedu Silambam Academy",
-  phone: "+91 0000000000",
+  phone: "+91 7810090877",
   email: "info@yudhakalam.com",
   place: "Padaivedu, Tiruvannamalai, Tamil Nadu, India",
   hours: "Saturdays, Sundays and government holidays: 6:00–8:00 AM and 4:00–6:00 PM",
@@ -1359,67 +1359,103 @@ function Join() {
   );
 }
 
-
 function Footer() {
   return (
     <footer
       id="contact"
-      className="relative scroll-mt-20 overflow-hidden border-t border-white/20 pt-14"
+      className="relative scroll-mt-20 overflow-hidden bg-[#140803] pt-20"
     >
-      {/* Sunset background */}
-      <Image
-        src="/sunset.jpg"
-        alt=""
-        fill
-        sizes="100vw"
-        className="object-cover object-bottom"
-      />
-
-      {/* Dark tint so the text stays readable (darker toward the bottom) */}
+      {/* Base warm gradient */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-black/55 via-black/65 to-[#2a0e04]/90"
+        className="absolute inset-0 bg-[linear-gradient(to_bottom,#2a0f04_0%,#1a0a04_45%,#0f0502_100%)]"
       />
 
+      {/* Rising sun: molten gold arc from the top edge */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 h-[420px] w-[900px] max-w-[160%] -translate-x-1/2 -translate-y-1/2 rounded-full bg-[radial-gradient(circle,#FFE27A_0%,#FFB020_22%,#FF7A18_45%,transparent_70%)] opacity-80 blur-2xl"
+      />
+
+      {/* Rays fanning out like a spinning staff */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute left-1/2 top-0 h-[520px] w-[1100px] max-w-[200%] -translate-x-1/2 -translate-y-[40%] opacity-30 [mask-image:radial-gradient(circle,black_20%,transparent_70%)]"
+        style={{
+          background:
+            "repeating-conic-gradient(from 0deg at 50% 50%, rgba(255,200,60,0.55) 0deg 2deg, transparent 2deg 12deg)",
+        }}
+      />
+
+      {/* Fine diamond pattern */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.07]"
+        style={{
+          backgroundImage:
+            "linear-gradient(45deg,#FFD84D 1px,transparent 1px),linear-gradient(-45deg,#FFD84D 1px,transparent 1px)",
+          backgroundSize: "34px 34px",
+        }}
+      />
+
+      {/* Embers */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
+        <span className="absolute left-[12%] top-[38%] h-1.5 w-1.5 rounded-full bg-[#FFB020] shadow-[0_0_12px_4px_rgba(255,160,30,0.7)]" />
+        <span className="absolute left-[30%] top-[62%] h-1 w-1 rounded-full bg-[#FFD84D] shadow-[0_0_10px_3px_rgba(255,216,77,0.7)]" />
+        <span className="absolute left-[58%] top-[30%] h-1 w-1 rounded-full bg-[#FF7A18] shadow-[0_0_10px_3px_rgba(255,122,24,0.7)]" />
+        <span className="absolute left-[78%] top-[55%] h-1.5 w-1.5 rounded-full bg-[#FFB020] shadow-[0_0_12px_4px_rgba(255,160,30,0.7)]" />
+        <span className="absolute left-[92%] top-[25%] h-1 w-1 rounded-full bg-[#FFD84D] shadow-[0_0_10px_3px_rgba(255,216,77,0.7)]" />
+      </div>
+
+      {/* Glowing gold divider with diamond */}
+      <div className="absolute left-0 right-0 top-0 flex items-center justify-center">
+        <span className="h-px flex-1 bg-gradient-to-r from-transparent via-[#FFD84D] to-[#FF8A1F]" />
+        <span className="mx-3 h-3 w-3 rotate-45 border border-[#FFF3B0] bg-[#FF7A18] shadow-[0_0_18px_6px_rgba(255,160,30,0.8)]" />
+        <span className="h-px flex-1 bg-gradient-to-l from-transparent via-[#FFD84D] to-[#FF8A1F]" />
+      </div>
+
+      {/* Content */}
       <div className="relative z-10">
         <div className="mx-auto grid max-w-6xl gap-10 px-4 sm:px-5 md:grid-cols-4">
           <div>
             <div className="flex items-center gap-3">
               <Logo />
-              <span className="glow-text font-display text-xl text-gold">{SITE.name}</span>
+              <span className="glow-text font-display text-xl text-[#FFD84D]">
+                {SITE.name}
+              </span>
             </div>
-            <p className="mt-4 text-[#FFF1D6]/85">
+            <p className="mt-4 text-[#F5E5C5]/85">
               Tamil staff fighting, taught with discipline, strength and heritage.
             </p>
           </div>
 
           <div>
-            <h3 className="glow-text font-display text-lg text-white">Quick links</h3>
-            <ul className="mt-3 space-y-2 text-[#FFF1D6]/85">
+            <h3 className="glow-text font-display text-lg text-[#FFB020]">Quick links</h3>
+            <ul className="mt-3 space-y-2 text-[#F5E5C5]/85">
               {NAV.map(([l, h]) => (
                 <li key={h}>
-                  <a href={h} className="transition hover:text-amber-300">{l}</a>
+                  <a href={h} className="transition hover:text-[#FFD84D]">{l}</a>
                 </li>
               ))}
             </ul>
           </div>
 
           <div>
-            <h3 className="glow-text font-display text-lg text-white">Programs</h3>
-            <ul className="mt-3 space-y-2 text-[#FFF1D6]/85">
+            <h3 className="glow-text font-display text-lg text-[#FFB020]">Programs</h3>
+            <ul className="mt-3 space-y-2 text-[#F5E5C5]/85">
               {PROGRAMS.map((p) => <li key={p}>{p}</li>)}
             </ul>
           </div>
 
           <div>
-            <h3 className="glow-text font-display text-lg text-white">Contact us</h3>
-            <ul className="mt-3 space-y-3 text-[#FFF1D6]/85">
+            <h3 className="glow-text font-display text-lg text-[#FFB020]">Contact us</h3>
+            <ul className="mt-3 space-y-3 text-[#F5E5C5]/85">
               <li>{SITE.place}</li>
               <li>
-                <a className="transition hover:text-amber-300" href={TEL}>{SITE.phone}</a>
+                <a className="transition hover:text-[#FFD84D]" href={TEL}>{SITE.phone}</a>
               </li>
               <li className="break-words">
-                <a className="transition hover:text-amber-300" href={`mailto:${SITE.email}`}>
+                <a className="transition hover:text-[#FFD84D]" href={`mailto:${SITE.email}`}>
                   {SITE.email}
                 </a>
               </li>
@@ -1428,8 +1464,11 @@ function Footer() {
           </div>
         </div>
 
-        <div className="mx-auto mt-12 flex max-w-6xl flex-wrap justify-between gap-2 border-t border-white/20 px-4 py-6 text-sm text-[#FFF1D6]/70 sm:px-5">
+        <div className="mx-auto mt-12 flex max-w-6xl flex-wrap items-center justify-between gap-2 border-t border-[#FF9A1F]/25 px-4 py-6 text-sm text-[#F5E5C5]/65 sm:px-5">
           <p>© 2026 Padaivedu Yudhakalam. All rights reserved.</p>
+          <p className="text-xs uppercase tracking-[0.3em] text-[#FFB020]/70">
+            Tradition · Discipline · Strength
+          </p>
         </div>
       </div>
     </footer>
