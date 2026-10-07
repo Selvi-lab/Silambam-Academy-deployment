@@ -1041,49 +1041,89 @@ function Training() {
 
 function Women() {
   return (
-    <section id="women" className="scroll-mt-20 bg-umber py-16 sm:py-20">
-      <div className="mx-auto grid max-w-6xl items-center gap-10 px-4 sm:px-5 md:grid-cols-2 md:gap-12">
-        <div>
+    <section
+      id="women"
+      className="relative scroll-mt-20 overflow-hidden bg-umber py-16 sm:py-20"
+    >
+      {/* Background photo: she stays on the right side */}
+      <Image
+        src="/women-bg.jpg"
+        alt="A woman practising Silambam with a bamboo staff on the beach at sunset"
+        fill
+        sizes="100vw"
+        className="object-cover object-right"
+      />
+
+      {/* Overlay: dark on the left where the text is, clear on the right where she stands.
+          On phones (no space beside the text) it is darker all over. */}
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-[#1C120C]/85 via-[#1C120C]/75 to-[#1C120C]/85 md:bg-gradient-to-r md:from-[#1C120C]/95 md:via-[#1C120C]/70 md:to-[#1C120C]/0"
+      />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5">
+        <div className="md:max-w-[52%]">
           <h2 className="glow-text font-display text-3xl leading-tight text-sand sm:text-5xl">
             She Learns. She Leads. She Protects.
           </h2>
-          <p className="mt-6 text-base leading-8 sm:text-lg">
+          <p className="mt-6 text-base leading-8 text-[#FFF3D6] [text-shadow:0_2px_8px_rgba(0,0,0,0.7)] sm:text-lg">
             Silambam does not create courage in her; it brings out the courage that is already there.
           </p>
+
           <ul className="mt-6 space-y-3">
             {WOMEN_POINTS.map((p) => (
-              <li key={p} className="flex gap-3 border-b border-ember/20 pb-3">
-                <span className="text-ember" aria-hidden>✔</span>
+              <li
+                key={p}
+                className="flex items-center gap-3 border-b border-ember/25 pb-3 text-[#FFF3D6] [text-shadow:0_1px_6px_rgba(0,0,0,0.7)]"
+              >
+                {/* SVG tick, so it always matches the theme (the ✔ character turns purple as an emoji) */}
+                <svg
+                  viewBox="0 0 20 20"
+                  aria-hidden="true"
+                  className="h-5 w-5 shrink-0"
+                  fill="none"
+                  stroke="#FF9A1F"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                >
+                  <path d="M4 10.5l4 4 8-9" />
+                </svg>
                 {p}
               </li>
             ))}
           </ul>
+
           <div className="mt-8">
             <Btn href="#join" solid>Register free</Btn>
           </div>
-        </div>
 
-        <div className="rounded-2xl border border-ember/40 bg-gradient-to-br from-rust/50 to-umber p-6 text-center sm:p-8">
-          <h3 className="font-display text-2xl text-gold sm:text-3xl">Fearless Women</h3>
-          <p className="mt-1 text-sand/85">Ancient Art, Modern Defence</p>
-          <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-ember/25 pt-6">
-            {[
-              ["40%", "of our students"],
-              ["Free", "kit and classes"],
-              ["3 months", "starter course"],
-            ]
-            .map(([n, l]) => (
-              <div key={n}>
-                <dt className="bg-gradient-to-b from-[#FFD84D] to-[#FF7A18] bg-clip-text font-display text-xl font-bold text-transparent sm:text-2xl">{n}</dt>
-                <dd className="mt-1 text-sm text-[#E9D6AE]/75">{l}</dd>
-              </div>
-            ))}
-          </dl>
+          {/* Stats card */}
+          <div className="mt-10 rounded-2xl border border-ember/40 bg-[#1C120C]/70 p-6 text-center backdrop-blur-sm sm:p-8">
+            <h3 className="font-display text-2xl text-gold sm:text-3xl">Fearless Women</h3>
+            <p className="mt-1 text-sand/90">Ancient Art, Modern Defence</p>
+            <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-ember/25 pt-6">
+              {[
+                ["40%", "of our students"],
+                ["Free", "kit and classes"],
+                ["3 months", "starter course"],
+              ].map(([n, l]) => (
+                <div key={n}>
+                  <dt className="bg-gradient-to-b from-[#FFD84D] to-[#FF7A18] bg-clip-text font-display text-xl font-bold text-transparent sm:text-2xl">
+                    {n}
+                  </dt>
+                  <dd className="mt-1 text-sm text-[#E9D6AE]/85">{l}</dd>
+                </div>
+              ))}
+            </dl>
+          </div>
         </div>
       </div>
     </section>
   );
 }
+
+
 
 function Achievements() {
   return (
