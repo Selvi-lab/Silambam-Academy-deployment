@@ -93,7 +93,7 @@ const PROGRAMS = [
   "Youth program",
   "Gymnastics",
 ];
-
+/*
 const ITEMS = [
   { img: "/programs/1-single-stick.jpg", video: "/video/1-single-stick.mp4", title: "Single stick", ta: "ஒற்றைக் கம்பு", desc: "One staff, total control." },
   { img: "/programs/2-double-stick.jpg", video: "/video/2-double-stick.mp4", title: "Double stick", ta: "இரட்டைக் கம்பு", desc: "Two sticks, rhythm and reflex." },
@@ -106,6 +106,32 @@ const ITEMS = [
   { img: "/programs/9-youth-program.jpg", video: "/video/9-youth-program.mp4", title: "Youth Program", ta: "இளைஞர் திட்டம்", desc: "Discipline and fitness for young learners." },
   { img: "/programs/10-gymnastics.jpg", video: "/video/10-gymnastics.mp4", title: "Gymnastics", ta: "ஜிம்னாஸ்டிக்ஸ்", desc: "Flexibility, balance and agility." },
 ];
+*/
+
+const ITEMS = [
+  { title: "Single stick", ta: "ஒற்றைக் கம்பு", img: "/programs/1-single-stick.jpg", pos: "50% 30%",
+    desc: "The foundation of Silambam. Learn stance, footwork and the core strikes with a single staff." },
+  { title: "Double stick", ta: "இரட்டைக் கம்பு", img: "/programs/2-double-stick.jpg", pos: "50% 30%",
+    desc: "Train both hands together for speed, rhythm and coordination." },
+  { title: "Surulvall", ta: "சுருள் வாள்", img: "/programs/3-surulvall.jpg", pos: "50% 25%",
+    desc: "The flexible coiled blade. It demands control, timing and complete focus." },
+  { title: "Vel Kambu", ta: "வேல் கம்பு", img: "/programs/4-vel-kambu.jpg", pos: "50% 30%",
+    desc: "Spear-style training with thrusts and reach, built on balance and precision." },
+  { title: "Maan Kombu", ta: "மான் கொம்பு", img: "/programs/5-maan-kombu.jpg", pos: "50% 30%",
+    desc: "The twin-horn weapon for close defence and sharp counters." },
+  { title: "Kuthuvarisai", ta: "குத்துவரிசை", img: "/programs/6-kuthuvarisai.jpg", pos: "50% 30%",
+    desc: "Empty-hand combat built on strikes, blocks and body control." },
+  { title: "Advanced Techniques", ta: "மேம்பட்ட நுட்பங்கள்", img: "/programs/7-advance-equipments-tech....jpg", pos: "50% 30%",
+    desc: "Higher-level equipment work and technique for experienced students." },
+  { title: "Women's Self Defence", ta: "பெண்கள் தற்காப்புக் கலை", img: "/programs/8-womens-self-defence.jpg", pos: "50% 30%",
+    desc: "Practical self-defence skills that build confidence and awareness." },
+  { title: "Youth Program", ta: "இளைஞர் பயிற்சி", img: "/programs/9-youth-program.jpg", pos: "50% 30%",
+    desc: "A structured path for young students to learn Silambam with discipline." },
+  { title: "Gymnastics", ta: "சீருடற்பயிற்சி", img: "/programs/10-gymnastics.jpg", pos: "50% 30%",
+    desc: "Flexibility, balance and strength that support every Silambam skill." },
+];
+
+
 
 // [left %, delay s, duration s] for the rising sparks
 const EMBERS = [
@@ -222,6 +248,8 @@ const Logo = () => (
   />
 );
 
+
+
 // ---------- Sections ----------
 function Nav() {
   return (
@@ -304,52 +332,6 @@ function Nav() {
 }
 
 
-/*
-function Hero() {
-  return (
-    <section id="top" className="scroll-mt-20 bg-umber px-4 pb-16 pt-24 sm:px-5">
-      <div className="mx-auto max-w-6xl">
-        <div className="relative aspect-[16/9] min-h-[200px] overflow-hidden rounded-2xl border border-ember/40 shadow-2xl shadow-ember/25">
-          <Image
-            src="/hero.png"
-            alt="Silambam fighters with staffs, swords and shields before a temple tower at sunset, under the title Padaivedu Yudhakalam"
-            fill
-            priority
-            sizes="(min-width:1152px) 1152px, 100vw"
-            className="hero-img object-cover"
-          />
-        </div>
-
-        <div className="mx-auto mt-10 max-w-3xl text-center">
-          <p className="glow-text text-xl font-bold text-gold sm:text-2xl">
-            மண்ணில் விழுந்த வியர்வை, வரலாற்றில் மலர்ந்த பெருமை
-          </p>
-          <p className="mt-4 text-base leading-8 text-sand/90 sm:text-lg">
-            வீர மரபின் அசைவுகளை கற்று, வலிமையான நாளையை உருவாக்குவோம்.
-          </p>
-          <p className="mt-4 text-base leading-8 text-sand/90 sm:text-xl">
-            Master the movements of a warrior tradition and build a stronger tomorrow.
-          </p>
-          <div className="mt-7 flex flex-wrap justify-center gap-4">
-            <Btn href="#training" solid>See our training</Btn>
-            <Btn href="#join">Join the academy</Btn>
-          </div>
-        </div>
-
-        <dl className="mx-auto mt-12 grid max-w-4xl grid-cols-2 gap-6 border-t border-ember/25 pt-8 text-center sm:grid-cols-4">
-          {STATS.map(([n, l]) => (
-            <div key={l}>
-              <dt className="bg-gradient-to-b from-gold to-ember bg-clip-text font-display text-3xl text-transparent sm:text-4xl">{n}</dt>
-              <dd className="mt-1 text-sm text-sand/75">{l}</dd>
-            </div>
-          ))}
-        </dl>
-      </div>
-    </section>
-  );
-}   */
-
-
 function Hero() {
   return (
     <section id="top" className="relative scroll-mt-20 overflow-hidden bg-[#1C120C] px-4 pb-16 pt-24 sm:px-5">
@@ -420,7 +402,7 @@ function About() {
       className="relative scroll-mt-20 overflow-hidden py-16 sm:py-20"
     >
       {/* Background Video */}
-      <video
+     {/* <video
         autoPlay
         muted
         loop
@@ -428,7 +410,15 @@ function About() {
         className="absolute inset-0 h-full w-full object-cover"
       >
         <source src="/video/silambam-hero.mp4" type="video/mp4" />
-      </video>
+      </video>*/}
+
+      <Image
+        src="/why.png"
+        alt=""
+        fill
+        sizes="100vw"
+        className="object-cover object-right brightness-[0.5]"
+      />
 
       {/* Dark overlay - makes text clear */}
       <div className="absolute inset-0 bg-[#1C120C]/75" />
@@ -488,98 +478,6 @@ function About() {
   );
 }
 
-
-/*
-function Why() {
-  return (
-    <section
-      id="why"
-      className="relative scroll-mt-20 overflow-hidden bg-[#1C0D05] py-20 sm:py-24"
-    >
-      {/* Background glow *}
-      <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-0 h-72 w-72 -translate-x-1/2 rounded-full bg-[#FF7A18]/10 blur-3xl" />
-        <div className="absolute bottom-0 left-0 h-64 w-64 rounded-full bg-[#F5C518]/5 blur-3xl" />
-        <div className="absolute right-0 top-1/2 h-72 w-72 rounded-full bg-[#FF7A18]/5 blur-3xl" />
-      </div>
-
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5">
-
-        {/* Section heading *}
-        <div className="mx-auto max-w-3xl text-center">
-
-          <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#FF9A1F]">
-            Why Padaivedu
-          </p>
-
-          <Heading center className="glow-text">
-            What Sets Us Apart
-          </Heading>
-
-          <p className="mx-auto mt-5 max-w-2xl text-sm leading-7 text-[#E9D6AE]/75 sm:text-base">
-            More than martial arts — we build discipline, strength,
-            confidence and a deeper connection to Tamil warrior heritage.
-          </p>
-
-          {/* Decorative line *}
-          <div className="mx-auto mt-7 flex items-center justify-center gap-3">
-            <span className="h-px w-16 bg-gradient-to-r from-transparent to-[#FF7A18]" />
-            <span className="h-2 w-2 rotate-45 border border-[#FFD84D] bg-[#FF7A18]" />
-            <span className="h-px w-16 bg-gradient-to-l from-transparent to-[#FF7A18]" />
-          </div>
-        </div>
-
-        {/* Cards *}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {WHY.map(({ title, desc }, i) => (
-            <article
-              key={title}
-              className="group relative overflow-hidden rounded-2xl border border-[#FF8A1F]/25 bg-gradient-to-br from-[#3A1607]/90 to-[#1E0D06]/95 p-6 shadow-[0_10px_35px_rgba(0,0,0,0.25)] transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD84D]/60 hover:shadow-[0_15px_45px_rgba(255,122,24,0.18)]"
-              style={vars({ "--i": i })}
-            >
-              {/* Top glow *}
-              <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FF9A1F] to-transparent opacity-40 transition-opacity duration-500 group-hover:opacity-100" />
-
-              {/* Number *}
-              <div className="mb-5 flex items-center justify-between">
-                <span className="font-display text-3xl text-[#FF7A18]/25 transition-colors duration-300 group-hover:text-[#FF7A18]/50">
-                  {String(i + 1).padStart(2, "0")}
-                </span>
-
-                <span className="flex h-10 w-10 items-center justify-center rounded-full border border-[#FF9A1F]/30 bg-[#FF7A18]/10 text-lg text-[#FFD84D] transition-all duration-300 group-hover:border-[#FFD84D]/60 group-hover:bg-[#FF7A18]/20 group-hover:shadow-[0_0_18px_rgba(255,122,24,0.25)]">
-                  ✦
-                </span>
-              </div>
-
-              {/* Title *}
-              <h3 className="font-display text-xl text-[#FFD84D] transition-colors duration-300 group-hover:text-[#FFE58A]">
-                {title}
-              </h3>
-
-              {/* Description *}
-              <p className="mt-3 leading-7 text-[#E9D6AE]/80">
-                {desc}
-              </p>
-
-              {/* Bottom accent *}
-              <div className="absolute bottom-0 left-6 right-6 h-px origin-left scale-x-0 bg-gradient-to-r from-[#FF7A18] to-[#FFD84D] transition-transform duration-500 group-hover:scale-x-100" />
-            </article>
-          ))}
-        </div>
-
-        {/* Bottom statement *}
-        <div className="mx-auto mt-12 max-w-3xl text-center">
-          <p className="font-display text-lg text-[#FFD84D]/90 sm:text-xl">
-            “Train the body. Sharpen the mind. Carry the tradition.”
-          </p>
-        </div>
-
-      </div>
-    </section>
-  );
-}
-
-*/
 
 
 function Why() {
@@ -936,7 +834,7 @@ function Training() {
 
             {/* Media */}
             <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-black">
-              {it.video ? (
+              {/*{it.video ? (
                 <video
                   src={it.video}
                   poster={it.img}
@@ -947,7 +845,7 @@ function Training() {
                   preload="none"
                   className="h-full w-full object-contain"
                 />
-              ) : (
+              ) :*/ (
                 <Image
                   src={it.img}
                   alt={it.title}
@@ -968,15 +866,15 @@ function Training() {
               <h3 className="mt-2 font-display text-2xl text-[#FFD84D]">
                 {it.title}
               </h3>
-
+                {/*
               <p className="mt-1 text-sm text-[#FF9A1F]">
                 {it.ta}
               </p>
-
+              
               <p className="mx-auto mt-3 max-w-md leading-7 text-[#E9D6AE]/80">
                 {it.desc}
               </p>
-
+                */}
               <a
                 href="#training"
                 className="mt-5 inline-flex items-center rounded-lg border border-[#FF9A1F]/50 bg-[#FF7A18]/10 px-6 py-2.5 text-sm font-bold text-[#FFD84D] transition-all duration-300 hover:border-[#FFD84D] hover:bg-[#FF7A18]/20"
@@ -1005,7 +903,7 @@ function Training() {
           <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#FF7A18] via-[#FFD84D] to-[#FF7A18]" />
 
           <Image
-            src="/logo.png"
+            src="/logo.jpeg"
             alt="Padaivedu Silambam Academy logo"
             width={320}
             height={320}
@@ -1125,193 +1023,375 @@ function Women() {
 
 
 
+
 function Achievements() {
   return (
-    <section id="achievements" className="scroll-mt-20 bg-stone py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-5">
-        <Heading center className="glow-text">Our proudest wins</Heading>
-        <div className="mx-auto mt-12 grid max-w-4xl gap-5 md:grid-cols-2">
-          {ACHIEVEMENTS.map(([t, d]) => (
-            <article key={t} className="border-l-4 border-ember bg-umber/60 p-6">
-              <h3 className="text-xl font-bold text-gold">{t}</h3>
-              <p className="mt-2 text-sand/85">{d}</p>
-            </article>
-          ))}
-        </div>
-        <div className="mt-8 text-center">
-          <Btn href="#achievements">See all achievements</Btn>
+    <section
+      id="achievements"
+      className="relative scroll-mt-20 overflow-hidden py-20 sm:py-28 lg:min-h-[640px]"
+    >
+      {/* Background image – anchor the trophy to the right */}
+      <div
+        className="absolute inset-0 bg-cover bg-[70%_center] lg:bg-right"
+        style={{ backgroundImage: "url('/win.jpg')" }}
+      />
+
+      {/* Dark only on the text side, fading to clear over the trophy */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent lg:via-black/50" />
+
+      {/* Light edge vignette instead of a full dark wash */}
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,transparent_40%,rgba(0,0,0,0.5)_100%)]" />
+
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5">
+        <div className="max-w-xl">
+          <Heading className="glow-text text-white">Our proudest wins</Heading>
+
+          <div className="mt-10 grid gap-5">
+            {ACHIEVEMENTS.map(([t, d]) => (
+              <article
+                key={t}
+                className="border-l-4 border-amber-400 bg-black/60 p-6 transition-colors duration-300 hover:bg-black/75"
+              >
+                <h3 className="text-xl font-bold text-amber-300">{t}</h3>
+                <p className="mt-2 text-white/90">{d}</p>
+              </article>
+            ))}
+          </div>
+
+          <div className="mt-8">
+            <Btn href="#achievements">See all achievements</Btn>
+          </div>
         </div>
       </div>
     </section>
   );
 }
 
+
+
+
 function Events() {
   return (
-    <section id="events" className="scroll-mt-20 bg-umber py-16 sm:py-20">
-      <div className="mx-auto max-w-4xl px-4 sm:px-5">
-        <Heading center className="glow-text">Coming up</Heading>
+    <section
+      id="events"
+      className="relative scroll-mt-20 overflow-hidden py-16 sm:py-20"
+    >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage: "url('/coming-up.png')",
+        }}
+      />
+
+      {/* Dark overlay */}
+      <div className="absolute inset-0 bg-black/55" />
+
+      {/* Orange/gold cinematic overlay */}
+      <div className="absolute inset-0 bg-gradient-to-b from-amber-950/30 via-orange-950/20 to-black/70" />
+
+      {/* Content */}
+      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-5">
+        <Heading center className="glow-text text-white">
+          Coming up
+        </Heading>
+
         {EVENTS.length ? (
           <ul className="mt-10 space-y-4">
             {EVENTS.map(([t, d]) => (
-              <li key={t} className="rounded-xl border border-ember/30 p-5">
-                <b>{t}</b>
-                <p className="text-sand/80">{d}</p>
+              <li
+                key={t}
+                className="rounded-xl border border-amber-300/40 bg-black/40 p-5 text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/55"
+              >
+                <b className="text-amber-300">{t}</b>
+
+                <p className="mt-1 text-white/80">
+                  {d}
+                </p>
               </li>
             ))}
           </ul>
         ) : (
-          <p className="mx-auto mt-10 max-w-xl rounded-xl border border-dashed border-ember/40 p-6 text-center text-base text-sand/85 sm:p-8 sm:text-lg">
-            No events are scheduled right now. Join the academy and we will tell you the moment a date is set.
+          <p
+            className="
+              mx-auto mt-10 max-w-xl rounded-xl
+              border border-amber-300/50
+              bg-black/45
+              p-6 text-center
+              text-base text-white/90
+              backdrop-blur-sm
+              sm:p-8 sm:text-lg
+            "
+          >
+            No events are scheduled right now. Join the academy and we will
+            tell you the moment a date is set.
           </p>
         )}
+
         <div className="mt-8 text-center">
-          <Btn href="#events">See all events</Btn>
+          <Btn href="#events">
+            See all events
+          </Btn>
         </div>
       </div>
     </section>
   );
 }
+
+
 
 function Gallery() {
   const n = ITEMS.length;
 
   return (
-    <section id="gallery" className="scroll-mt-20 overflow-hidden bg-stone py-16 sm:py-20">
-      <div className="mx-auto max-w-6xl px-4 sm:px-5">
-        <Heading center className="glow-text">Choose your path</Heading>
-        <p className="mt-3 text-center text-sand/70">
-          Ten disciplines, one tradition ·
-        </p>
+    <section
+      id="gallery"
+      className="relative scroll-mt-20 overflow-hidden bg-[#160d08] py-20 sm:py-28"
+    >
+      {/* Background glow */}
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-600/10 blur-[140px]" />
 
-        <div
-          role="radiogroup"
-          aria-label="Silambam programs"
-          className={`relative mx-auto mt-8 h-[480px] w-full max-w-4xl [--sel:0] sm:h-[540px] ${SELECT}`}
-        >
-          {/* spotlight behind the card */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-ember/10 blur-3xl" />
+      {/* Decorative lines */}
+      <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" />
+      <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-400/30 to-transparent" />
 
-          {/* faint watermark */}
-          <span
-            aria-hidden
-            className="pointer-events-none absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 select-none whitespace-nowrap font-display text-[5rem] leading-none text-gold/[0.05] sm:text-[11rem]"
-          >
-            SILAMBAM
-          </span>
+      <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
 
-          {/* slowly turning dashed ring */}
-          <div className="pointer-events-none absolute left-1/2 top-1/2 aspect-square h-[80%] -translate-x-1/2 -translate-y-1/2">
-            <div className="spin-ring h-full w-full rounded-full border border-dashed border-ember/30" />
-          </div>
+        {/* Header */}
+        <div className="mx-auto max-w-3xl text-center">
+          <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-orange-400">
+            The Art of Silambam
+          </p>
 
-          {/* orbit line */}
-          <div className="pointer-events-none absolute inset-x-[14%] inset-y-[10%] rounded-[50%] border border-gold/15" />
+          <Heading center className="glow-text">
+            Choose your path
+          </Heading>
 
-          {/* rising sparks */}
-          {EMBERS.map(([l, d, t]) => (
-            <span
-              key={l}
-              aria-hidden
-              className="ember pointer-events-none absolute bottom-[6%] h-1.5 w-1.5 rounded-full bg-ember/90 blur-[1px]"
-              style={vars({ left: `${l}%`, "--del": `${d}s`, "--dur": `${t}s` })}
-            />
-          ))}
-
-          {/* ring of pictures: click one to pick that program */}
-          {ITEMS.map((it, i) => (
-            <label
-              key={it.title}
-              htmlFor={`p${i}`}
-              aria-label={`Show ${it.title}`}
-              className="orbit-item group absolute h-14 w-14 cursor-pointer rounded-full sm:h-[72px] sm:w-[72px]"
-              style={vars({ "--n": i })}
-            >
-              <span className="relative block h-full w-full overflow-hidden rounded-full border-2 border-sand/40 group-hover:border-ember">
-                <Image src={it.img} alt="" fill sizes="72px" className="object-cover" />
-              </span>
-              <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-full bg-umber/90 px-3 py-1 text-xs text-sand opacity-0 transition-opacity group-hover:opacity-100">
-                {it.title}
-              </span>
-            </label>
-          ))}
-
-          {/* one hidden radio + one centre card per program */}
-          {ITEMS.map((it, i) => (
-            <div key={it.title} className="contents">
-              <input
-                type="radio"
-                name="program"
-                id={`p${i}`}
-                defaultChecked={i === 0}
-                aria-label={it.title}
-                className="peer sr-only"
-              />
-              <div className="panel pointer-events-none invisible absolute inset-0 z-20 opacity-0 transition-[opacity,visibility] duration-500 peer-checked:visible peer-checked:opacity-100 peer-focus-visible:[&_.card]:ring-2 peer-focus-visible:[&_.card]:ring-ember">
-                <div
-                  className="card pointer-events-auto absolute w-52 rounded-2xl border border-ember/60 px-4 pb-4 pt-14 text-center sm:w-60"
-                  style={{ backgroundColor: "#2a1d12", boxShadow: "0 0 40px rgba(255,122,26,0.25)" }}
-                >
-                  <div className="absolute -top-12 left-1/2 h-24 w-24 -translate-x-1/2 overflow-hidden rounded-full border-4 border-sand/90 bg-umber">
-                    <Image src={it.img} alt={it.title} fill sizes="96px" className="object-cover" />
-                  </div>
-                  <p className="rise text-xs tracking-[0.3em] text-ember/70" style={vars({ "--d": 0 })}>
-                    {String(i + 1).padStart(2, "0")} / {n}
-                  </p>
-                  <h3 className="rise font-display text-xl text-gold" style={vars({ "--d": 1 })}>{it.title}</h3>
-                  <p className="rise text-sm text-ember/80" style={vars({ "--d": 2 })}>{it.ta}</p>
-                  <div
-                    className="rise mx-auto my-2 h-px w-16 bg-gradient-to-r from-transparent via-ember to-transparent"
-                    style={vars({ "--d": 3 })}
-                  />
-                  <p className="rise text-sm leading-6 text-sand/85" style={vars({ "--d": 4 })}>{it.desc}</p>
-                  <div className="rise mt-4 flex items-center justify-center gap-3" style={vars({ "--d": 5 })}>
-                    <label
-                      htmlFor={`p${(i + n - 1) % n}`}
-                      aria-label="Previous program"
-                      className="grid h-8 w-8 cursor-pointer place-items-center rounded-full border border-ember/50 text-gold hover:bg-ember/10"
-                    >
-                      ‹
-                    </label>
-                    <a
-                      href="#contact"
-                      className="rounded-full bg-gradient-to-r from-[#FF7A1A] to-[#F5C518] px-5 py-2 text-sm font-semibold text-umber"
-                    >
-                      Enroll
-                    </a>
-                    <label
-                      htmlFor={`p${(i + 1) % n}`}
-                      aria-label="Next program"
-                      className="grid h-8 w-8 cursor-pointer place-items-center rounded-full border border-ember/50 text-gold hover:bg-ember/10"
-                    >
-                      ›
-                    </label>
-                  </div>
-                </div>
-
-                {/* dots */}
-                <div className="pointer-events-auto absolute bottom-1 left-1/2 flex -translate-x-1/2 gap-2">
-                  {ITEMS.map((d, j) => (
-                    <label
-                      key={d.title}
-                      htmlFor={`p${j}`}
-                      aria-label={`Go to ${d.title}`}
-                      className={`h-2 cursor-pointer rounded-full transition-all ${j === i ? "w-5 bg-ember" : "w-2 bg-sand/40"}`}
-                    />
-                  ))}
-                </div>
-              </div>
-            </div>
-          ))}
+          <p className="mx-auto mt-5 max-w-xl text-sm leading-7 text-stone-300 sm:text-base">
+            Ten disciplines. One ancient tradition. Discover the path that
+            matches your skill, discipline and ambition.
+          </p>
         </div>
 
-        <p className="mt-2 text-center text-xs text-sand/50">
-          Tap a circle to explore ·
-        </p>
+        {/* Main showcase */}
+        <div className="mx-auto mt-14 max-w-6xl">
+
+          {/* Program selector */}
+          <div
+            role="radiogroup"
+            aria-label="Silambam programs"
+            className={`relative ${SELECT}`}
+          >
+
+            {/* Hidden radios */}
+            {ITEMS.map((it, i) => (
+              <div key={it.title} className="contents">
+
+                <input
+                  type="radio"
+                  name="programs"
+                  id={`p${i}`}
+                  defaultChecked={i === 0}
+                  aria-label={it.title}
+                  className="peer sr-only"
+                />
+
+                {/* Main panel */}
+                <div
+                  className="
+                    invisible
+                    absolute
+                    inset-0
+                    opacity-0
+                    transition-all
+                    duration-700
+                    peer-checked:visible
+                    peer-checked:relative
+                    peer-checked:opacity-100
+                  "
+                >
+
+                  <div className="grid min-h-[520px] overflow-hidden rounded-[2rem] border border-orange-300/20 bg-[#21150e] shadow-[0_30px_100px_rgba(0,0,0,0.45)] lg:grid-cols-2">
+
+                    {/* IMAGE */}
+                    <div className="group relative min-h-[360px] overflow-hidden lg:min-h-[520px]">
+
+                      <Image
+                        src={it.img}
+                        alt={it.title}
+                        fill
+                        priority={i === 0}
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        style={{ objectPosition: it.pos ?? "center" }}
+                        className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                      />
+
+                      {/* Image overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+                      {/* Orange cinematic light */}
+                      <div className="absolute inset-0 bg-gradient-to-br from-orange-500/15 via-transparent to-black/30" />
+
+                      {/* Image label */}
+                      <div className="absolute bottom-7 left-7">
+                        <span className="rounded-full border border-white/20 bg-black/30 px-4 py-2 text-xs uppercase tracking-[0.25em] text-white backdrop-blur-md">
+                          Silambam Academy
+                        </span>
+                      </div>
+
+                    </div>
+
+                    {/* CONTENT */}
+                    <div className="relative flex flex-col justify-center p-8 sm:p-12 lg:p-14">
+
+                      {/* Number */}
+                      <div className="mb-7 flex items-center gap-4">
+                        <span className="text-xs tracking-[0.4em] text-orange-400">
+                          {String(i + 1).padStart(2, "0")}
+                        </span>
+
+                        <span className="h-px w-16 bg-orange-400/50" />
+
+                        <span className="text-xs tracking-[0.3em] text-stone-500">
+                          {String(n).padStart(2, "0")}
+                        </span>
+                      </div>
+
+                      {/* Title */}
+                      <h3 className="font-display text-4xl leading-tight text-amber-300 sm:text-5xl">
+                        {it.title}
+                      </h3>
+
+                      {/* Tamil */}
+                      <p className="mt-3 text-lg text-orange-300/80">
+                        {it.ta}
+                      </p>
+
+                      {/* Description */}
+                      <div className="my-7 h-px w-20 bg-gradient-to-r from-orange-500 to-transparent" />
+
+                      <p className="max-w-md text-base leading-8 text-stone-300">
+                        {it.desc}
+                      </p>
+
+                      {/* Features */}
+                      <div className="mt-8 grid grid-cols-2 gap-4 text-sm">
+                        <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                          <span className="block text-orange-400">
+                            Discipline
+                          </span>
+                          <span className="mt-1 block text-stone-300">
+                            Traditional
+                          </span>
+                        </div>
+
+                        <div className="rounded-xl border border-white/10 bg-white/[0.03] p-4">
+                          <span className="block text-orange-400">
+                            Training
+                          </span>
+                          <span className="mt-1 block text-stone-300">
+                            Progressive
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Actions */}
+                      <div className="mt-9 flex flex-wrap items-center gap-3">
+
+                        <label
+                          htmlFor={`p${(i + n - 1) % n}`}
+                          className="
+                            grid h-11 w-11 cursor-pointer
+                            place-items-center rounded-full
+                            border border-orange-400/40
+                            text-lg text-amber-300
+                            transition hover:border-orange-400
+                            hover:bg-orange-400/10
+                          "
+                        >
+                          ←
+                        </label>
+
+                        <a
+                          href="#contact"
+                          className="
+                            rounded-full
+                            bg-gradient-to-r
+                            from-orange-500
+                            to-amber-400
+                            px-7 py-3
+                            text-sm font-bold
+                            text-[#24150b]
+                            shadow-lg
+                            shadow-orange-500/20
+                            transition
+                            hover:scale-105
+                            hover:shadow-orange-500/40
+                          "
+                        >
+                          Begin Training
+                        </a>
+
+                        <label
+                          htmlFor={`p${(i + 1) % n}`}
+                          className="
+                            grid h-11 w-11 cursor-pointer
+                            place-items-center rounded-full
+                            border border-orange-400/40
+                            text-lg text-amber-300
+                            transition hover:border-orange-400
+                            hover:bg-orange-400/10
+                          "
+                        >
+                          →
+                        </label>
+
+                      </div>
+
+                    </div>
+                  </div>
+
+                  {/* Program dots */}
+                  <div className="mt-7 flex justify-center gap-2">
+                    {ITEMS.map((d, j) => (
+                      <label
+                        key={d.title}
+                        htmlFor={`p${j}`}
+                        aria-label={`Go to ${d.title}`}
+                        className={`
+                          h-1.5 cursor-pointer rounded-full
+                          transition-all duration-300
+                          ${
+                            j === i
+                              ? "w-10 bg-orange-400"
+                              : "w-2 bg-stone-600 hover:bg-orange-300"
+                          }
+                        `}
+                      />
+                    ))}
+                  </div>
+
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </div>
+
+        {/* Bottom text */}
+        <div className="mt-10 text-center">
+          <p className="text-xs uppercase tracking-[0.3em] text-stone-500">
+            Select a discipline to explore
+          </p>
+        </div>
+
       </div>
     </section>
   );
 }
+
+
+
 
 function Join() {
   return (
