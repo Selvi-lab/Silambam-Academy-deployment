@@ -4,7 +4,7 @@ import VideoController from "./components/VideoController";
 
 // ---------- Edit all content here ----------
 const SITE = {
-  name: "Padaivedu Silambam Academy",
+  name: "Padaivedu Yudhakalam",
   phone: "+91 7810090877",
   email: "info@yudhakalam.com",
   place: "Padaivedu, Tiruvannamalai, Tamil Nadu, India",

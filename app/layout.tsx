@@ -7,15 +7,21 @@ const display = Yatra_One({ weight: "400", subsets: ["latin"], variable: "--font
 const body = Hind_Madurai({ weight: ["400", "500", "700"], subsets: ["latin", "tamil"], variable: "--font-body" });
 
 export const metadata: Metadata = {
-  title: " Yudhakalam | Padaivedu Silambam Academy ",
+  title: "   Padaivedu Yudhakalam ",
   description: "Learn Silambam, the Tamil staff art, at Padaivedu Silambam Academy in Tiruvannamalai.",
   icons: { icon: "/logo.jpeg" },
 };
 
 export const viewport: Viewport = {
+  //width: "device-width",
+  //initialScale: 1,
+  //themeColor: "#5A2408",
   width: "device-width",
   initialScale: 1,
+  viewportFit: "cover",
   themeColor: "#5A2408",
+
+
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
