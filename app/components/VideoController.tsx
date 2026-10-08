@@ -1,7 +1,5 @@
 "use client";
-
 import { useEffect } from "react";
-
 // Plays the video of the opened popup (#prog-N) and pauses the rest.
 export default function VideoController() {
   useEffect(() => {
@@ -21,11 +19,9 @@ export default function VideoController() {
         }
       });
     };
-
     sync();
     window.addEventListener("hashchange", sync);
     return () => window.removeEventListener("hashchange", sync);
   }, []);
-
   return null;
 }
