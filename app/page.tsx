@@ -2,6 +2,7 @@ import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 import VideoController from "./components/VideoController";
 
+
 // ---------- Edit all content here ----------
 const SITE = {
   name: "Padaivedu Yudhakalam",
@@ -239,7 +240,7 @@ const Logo = () => (
 // ---------- Sections ----------
 function Nav() {
   return (
-    <header className="fixed inset-x-0 top-0 z-30 border-b border-[#FF8A1F]/30 bg-[#1C120C]/90 backdrop-blur">
+    <header className="fixed inset-x-0 top-0 z-30 border-b border-[#FF8A1F]/30 bg-[#1C120C]/90 pt-[env(safe-area-inset-top)] backdrop-blur">
       <nav
         className="mx-auto flex max-w-6xl items-center justify-between gap-3 px-4 py-3 sm:px-5"
         aria-label="Main"
@@ -400,21 +401,21 @@ function About() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-right brightness-[0.5]"
+        className="object-cover object-[75%_center] md:object-right"
       />
 
       {/* Dark overlay - makes text clear */}
       <div className="absolute inset-0 bg-[#1C120C]/75" />
 
       {/* Orange cinematic overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5A2408]/80 via-[#2A1308]/75 to-[#120805]/90" />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5A2408]/70 via-[#2A1308]/60 to-[#120805]/80" />
+
 
       {/* Soft center glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,166,0,0.16),transparent_60%)]" />
 
       {/* Content */}
-      <div className="relative z-10 mx-10  max-w-6xl px-4 sm:grid-cols-2 ">
-                mt-10 grid gap-4 sm:grid-cols-2
+      <div className="relative z-10 mx-auto  max-w-6xl px-4 sm:px-5 ">
         <div className="max-w-4xl">
           <Heading className="glow-text">
             Old Tradition...! New Warriors...!
@@ -435,7 +436,7 @@ function About() {
         {/* Highlight Cards */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
                     
-          {HIGHLIGHTS.map(([t, d], i) => (
+          {/*{HIGHLIGHTS.map(([t, d], i) => (
             <article
               key={t}
               className={`rounded-xl border border-[#FF9A1F]/50 bg-[#1C120C]/80 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FFD84D]/80 hover:bg-[#241006]/90 hover:shadow-[0_0_30px_rgba(255,122,24,0.2)] ${
@@ -450,7 +451,21 @@ function About() {
                 {d}
               </p>
             </article>
-          ))}
+          ))}*/}
+
+          {HIGHLIGHTS.map(([t, d], i) => (
+  <div
+    key={t}
+    data-reveal
+    style={vars({ "--i": i })}
+    className={i === 2 ? "sm:col-span-2" : ""}
+  >
+    <article className="h-full rounded-xl border border-[#FF9A1F]/50 bg-[#1C120C]/80 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FFD84D]/80 hover:bg-[#241006]/90 hover:shadow-[0_0_30px_rgba(255,122,24,0.2)]">
+      <h3 className="font-display text-xl text-[#FFD84D] drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">{t}</h3>
+      <p className="mt-2 leading-7 text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">{d}</p>
+    </article>
+  </div>
+))}
 
         </div>
       </div>
@@ -474,13 +489,13 @@ function Why() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-right brightness-[0.5]"
+        className="object-cover object-[75%_center] md:object-right brightness-[0.5]"
       />
 
       {/* Dark overlay so the cards and text stay clear */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-[#1C0D05]/90 via-[#1C0D05]/75 to-[#1C0D05]/95"
+        className="absolute inset-0 bg-gradient-to-b from-[#1C0D05]/80 via-[#1C0D05]/60 to-[#1C0D05]/85"
       />
 
       {/* Background glow */}
@@ -521,7 +536,7 @@ function Why() {
           {WHY.map(({ title, desc }, i) => (
             <article
               key={title}
-              className="group relative overflow-hidden rounded-2xl border border-[#FF8A1F]/30 bg-gradient-to-br from-[#3A1607]/85 to-[#1E0D06]/90 p-6 shadow-[0_10px_35px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD84D]/60 hover:shadow-[0_15px_45px_rgba(255,122,24,0.18)]"
+              className="group relative h-full overflow-hidden rounded-2xl border border-[#FF8A1F]/30 bg-gradient-to-br from-[#3A1607]/85 to-[#1E0D06]/90 p-6 shadow-[0_10px_35px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD84D]/60 hover:shadow-[0_15px_45px_rgba(255,122,24,0.18)]"
               style={vars({ "--i": i })}
             >
               {/* Top glow */}
@@ -584,7 +599,12 @@ function Training() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-right brightness-[0.5]"
+        className="object-cover object-center opacity-30 brightness-[0.5]"
+      />
+
+      <div
+        aria-hidden
+        className="absolute inset-0 bg-gradient-to-b from-[#160A04]/80 via-[#160A04]/60 to-[#160A04]/85"
       />
 
 
@@ -781,7 +801,8 @@ function Training() {
           />
 
           {/* Popup */}
-          <div className="relative w-full max-w-lg overflow-hidden rounded-3xl border border-[#FF9A1F]/40 bg-[#1A0C05] p-4 shadow-[0_0_60px_rgba(255,122,24,0.25)] sm:p-5">
+          <div className="popup-card relative max-h-[90dvh] w-full max-w-lg overflow-y-auto rounded-3xl border border-[#FF9A1F]/40 bg-[#1A0C05] p-4 shadow-[0_0_60px_rgba(255,122,24,0.25)] sm:p-5">
+
             {/* Top accent */}
             <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#FF7A18] via-[#FFD84D] to-[#FF7A18]" />
 
@@ -956,12 +977,11 @@ function Achievements() {
     >
       {/* Background image – anchor the trophy to the right */}
       <div
-        className="absolute inset-0 bg-cover bg-[70%_center] lg:bg-right"
-        style={{ backgroundImage: "url('/win.jpg')" }}
-      />
+  className="absolute inset-0 bg-cover bg-[position:72%_center] lg:bg-right"
+  style={{ backgroundImage: "url('/win.jpg')" }}
+/>
 
-      {/* Dark only on the text side, fading to clear over the trophy */}
-      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent lg:via-black/50" />
+<div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 lg:bg-gradient-to-r lg:from-black/90 lg:via-black/50 lg:to-transparent" />
 
       {/* Light edge vignette instead of a full dark wash */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,transparent_40%,rgba(0,0,0,0.5)_100%)]" />
@@ -1075,7 +1095,7 @@ function Gallery() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-right brightness-[0.5]"
+        className="hidden scale-125 object-cover opacity-50 blur-2xl sm:block"
       />
 
       {/* Background glow */}
@@ -1533,7 +1553,7 @@ function FloatingCall() {
     <a
       href={TEL}
       aria-label="Call the academy to enrol"
-      className="fixed bottom-4 right-4 z-40 flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FF7A1A] to-[#F5C518] px-4 py-3 text-sm font-bold text-[#1C120C] shadow-lg shadow-black/40 hover:from-[#FF8F3A] hover:to-[#FFD84D] sm:bottom-5 sm:right-5 sm:px-5 sm:text-base"
+      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-40 flex items-center gap-2 rounded-full ... sm:bottom-5 sm:right-5 ..."
     >
       <span aria-hidden>📞</span> Enroll Today
     </a>
