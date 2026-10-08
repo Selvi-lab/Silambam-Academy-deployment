@@ -8,7 +8,7 @@ const body = Hind_Madurai({ weight: ["400", "500", "700"], subsets: ["latin", "t
 
 export const metadata: Metadata = {
   title: "   Padaivedu Yudhakalam ",
-  description: "Learn Silambam, the Tamil staff art, at Padaivedu Silambam Academy in Tiruvannamalai.",
+  description: "Learn Silambam, the Tamil staff art, at Padaivedu Yudhakalam in Tiruvannamalai.",
   icons: { icon: "/logo.jpeg" },
 };
 

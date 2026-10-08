@@ -227,7 +227,7 @@ const Btn = ({
 const Logo = () => (
   <Image
     src="/logo.jpeg"
-    alt="Padaivedu Silambam Academy logo"
+    alt="Padaivedu Yudhakalam logo"
     width={40}
     height={40}
     className="h-10 w-10 shrink-0 rounded-full border border-gold bg-umber"
@@ -413,8 +413,8 @@ function About() {
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,166,0,0.16),transparent_60%)]" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5">
-
+      <div className="relative z-10 mx-10  max-w-6xl px-4 sm:grid-cols-2 ">
+                mt-10 grid gap-4 sm:grid-cols-2
         <div className="max-w-4xl">
           <Heading className="glow-text">
             Old Tradition...! New Warriors...!
@@ -434,7 +434,7 @@ function About() {
 
         {/* Highlight Cards */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-
+                    
           {HIGHLIGHTS.map(([t, d], i) => (
             <article
               key={t}
