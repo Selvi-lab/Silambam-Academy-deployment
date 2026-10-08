@@ -1,16 +1,16 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
-import { Yatra_One, Hind_Madurai } from "next/font/google";
+import { Poppins, Noto_Sans_Tamil } from "next/font/google";
 import MobileFx from "./components/MobileFx";
 
-const display = Yatra_One({
-  weight: "400",
+const display = Poppins({
+  weight: ["600", "700"],
   subsets: ["latin"],
   variable: "--font-yatra",
   display: "swap",
 });
 
-const body = Hind_Madurai({
+const body = Noto_Sans_Tamil({
   weight: ["400", "500", "700"],
   subsets: ["latin", "tamil"],
   variable: "--font-hind",
