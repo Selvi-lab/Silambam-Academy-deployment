@@ -1,9 +1,7 @@
 import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Yatra_One, Hind_Madurai } from "next/font/google";
-import MobileFx from "./components/MobileFx.tsx";
-
-
+import MobileFx from "./components/MobileFx";
 
 const display = Yatra_One({
   weight: "400",
@@ -11,6 +9,7 @@ const display = Yatra_One({
   variable: "--font-yatra",
   display: "swap",
 });
+
 const body = Hind_Madurai({
   weight: ["400", "500", "700"],
   subsets: ["latin", "tamil"],
@@ -38,9 +37,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="font-body antialiased">
         {children}
         <MobileFx />
-        <noscript>
-          <style>{`[data-reveal]{opacity:1!important;transform:none!important}`}</style>
-        </noscript>
       </body>
     </html>
   );

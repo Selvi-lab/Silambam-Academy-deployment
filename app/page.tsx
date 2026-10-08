@@ -1,7 +1,7 @@
 import Image from "next/image";
 import type { CSSProperties, ReactNode } from "react";
 import VideoController from "./components/VideoController";
-
+import MobileFx from "./components/MobileFx";
 
 // ---------- Edit all content here ----------
 const SITE = {
@@ -96,7 +96,7 @@ const PROGRAMS = [
 ];
 
 const ITEMS = [
-  { title: "Single stick", ta: "ஒற்றைக் கம்பு", img: "/programs/1-single-stick.jpg", pos: "50% 30%", 
+  { title: "Single stick", ta: "ஒற்றைக் கம்பு", img: "/programs/1-single-stick.jpg", pos: "50% 30%",
     desc: "The foundation of Silambam. Learn stance, footwork and the core strikes with a single staff." },
   { title: "Double stick", ta: "இரட்டைக் கம்பு", img: "/programs/2-double-stick.jpg", pos: "50% 30%",
     desc: "Train both hands together for speed, rhythm and coordination." },
@@ -117,8 +117,6 @@ const ITEMS = [
   { title: "Gymnastics", ta: "சீருடற்பயிற்சி", img: "/programs/10-gymnastics.jpg", pos: "50% 30%",
     desc: "Flexibility, balance and strength that support every Silambam skill." },
 ];
-
-
 
 // [left %, delay s, duration s] for the rising sparks
 const EMBERS = [
@@ -217,7 +215,7 @@ const Btn = ({
 }) => (
   <a
     href={href}
-    className={`inline-block rounded-lg px-5 py-2.5 font-bold transition-colors [text-shadow:none] ${
+    className={`inline-block rounded-lg px-5 py-2.5 font-bold transition-all active:scale-95 [text-shadow:none] ${
       solid ? SOLID_BTN : "border-2 border-ember/60 text-gold hover:bg-ember/10"
     }`}
   >
@@ -234,8 +232,6 @@ const Logo = () => (
     className="h-10 w-10 shrink-0 rounded-full border border-gold bg-umber"
   />
 );
-
-
 
 // ---------- Sections ----------
 function Nav() {
@@ -293,7 +289,7 @@ function Nav() {
               <li key={h}>
                 <a
                   href={h}
-                  className="group relative block rounded-lg px-3 py-2.5 text-[#E9D6AE]/90 transition-all duration-300 hover:bg-[#FF7A1A]/10 hover:text-[#FFD84D] hover:shadow-[0_0_16px_rgba(255,122,24,0.3)]"
+                  className="group relative block rounded-lg px-3 py-2.5 text-[#E9D6AE]/90 transition-all duration-300 hover:bg-[#FF7A1A]/10 hover:text-[#FFD84D] hover:shadow-[0_0_16px_rgba(255,122,24,0.3)] active:bg-[#FF7A1A]/15 active:text-[#FFD84D]"
                 >
                   <span className="relative z-10">{l}</span>
 
@@ -317,7 +313,6 @@ function Nav() {
     </header>
   );
 }
-
 
 function Hero() {
   return (
@@ -385,37 +380,25 @@ function About() {
       id="about"
       className="relative scroll-mt-20 overflow-hidden py-16 sm:py-20"
     >
-      {/* Background Video */}
-     {/* <video
-        autoPlay
-        muted
-        loop
-        playsInline
-        className="absolute inset-0 h-full w-full object-cover"
-      >
-        <source src="/video/silambam-hero.mp4" type="video/mp4" />
-      </video>*/}
-
       <Image
         src="/why.png"
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-[75%_center] md:object-right"
+        className="object-cover object-[75%_center] brightness-[0.5] sm:object-right"
       />
 
       {/* Dark overlay - makes text clear */}
       <div className="absolute inset-0 bg-[#1C120C]/75" />
 
       {/* Orange cinematic overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-[#5A2408]/70 via-[#2A1308]/60 to-[#120805]/80" />
-
+      <div className="absolute inset-0 bg-gradient-to-br from-[#5A2408]/80 via-[#2A1308]/75 to-[#120805]/90" />
 
       {/* Soft center glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_40%,rgba(255,166,0,0.16),transparent_60%)]" />
 
       {/* Content */}
-      <div className="relative z-10 mx-auto  max-w-6xl px-4 sm:px-5 ">
+      <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5">
         <div className="max-w-4xl">
           <Heading className="glow-text">
             Old Tradition...! New Warriors...!
@@ -435,10 +418,11 @@ function About() {
 
         {/* Highlight Cards */}
         <div className="mt-10 grid gap-4 sm:grid-cols-2">
-                    
-          {/*{HIGHLIGHTS.map(([t, d], i) => (
+          {HIGHLIGHTS.map(([t, d], i) => (
             <article
               key={t}
+              data-reveal
+              style={vars({ "--i": i })}
               className={`rounded-xl border border-[#FF9A1F]/50 bg-[#1C120C]/80 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FFD84D]/80 hover:bg-[#241006]/90 hover:shadow-[0_0_30px_rgba(255,122,24,0.2)] ${
                 i === 2 ? "sm:col-span-2" : ""
               }`}
@@ -451,22 +435,7 @@ function About() {
                 {d}
               </p>
             </article>
-          ))}*/}
-
-          {HIGHLIGHTS.map(([t, d], i) => (
-  <div
-    key={t}
-    data-reveal
-    style={vars({ "--i": i })}
-    className={i === 2 ? "sm:col-span-2" : ""}
-  >
-    <article className="h-full rounded-xl border border-[#FF9A1F]/50 bg-[#1C120C]/80 p-5 shadow-[0_8px_30px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:border-[#FFD84D]/80 hover:bg-[#241006]/90 hover:shadow-[0_0_30px_rgba(255,122,24,0.2)]">
-      <h3 className="font-display text-xl text-[#FFD84D] drop-shadow-[0_2px_5px_rgba(0,0,0,0.8)]">{t}</h3>
-      <p className="mt-2 leading-7 text-white/90 drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">{d}</p>
-    </article>
-  </div>
-))}
-
+          ))}
         </div>
       </div>
 
@@ -475,7 +444,6 @@ function About() {
     </section>
   );
 }
-
 
 function Why() {
   return (
@@ -489,13 +457,13 @@ function Why() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-[75%_center] md:object-right brightness-[0.5]"
+        className="object-cover object-[75%_center] brightness-[0.5] sm:object-right"
       />
 
       {/* Dark overlay so the cards and text stay clear */}
       <div
         aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-[#1C0D05]/80 via-[#1C0D05]/60 to-[#1C0D05]/85"
+        className="absolute inset-0 bg-gradient-to-b from-[#1C0D05]/90 via-[#1C0D05]/75 to-[#1C0D05]/95"
       />
 
       {/* Background glow */}
@@ -506,10 +474,8 @@ function Why() {
       </div>
 
       <div className="relative z-10 mx-auto max-w-6xl px-4 sm:px-5">
-
         {/* Section heading */}
         <div className="mx-auto max-w-3xl text-center">
-
           <p className="mb-3 text-xs font-bold uppercase tracking-[0.35em] text-[#FF9A1F]">
             Why Padaivedu
           </p>
@@ -536,7 +502,8 @@ function Why() {
           {WHY.map(({ title, desc }, i) => (
             <article
               key={title}
-              className="group relative h-full overflow-hidden rounded-2xl border border-[#FF8A1F]/30 bg-gradient-to-br from-[#3A1607]/85 to-[#1E0D06]/90 p-6 shadow-[0_10px_35px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD84D]/60 hover:shadow-[0_15px_45px_rgba(255,122,24,0.18)]"
+              data-reveal
+              className="group relative overflow-hidden rounded-2xl border border-[#FF8A1F]/30 bg-gradient-to-br from-[#3A1607]/85 to-[#1E0D06]/90 p-6 shadow-[0_10px_35px_rgba(0,0,0,0.35)] backdrop-blur-sm transition-all duration-500 hover:-translate-y-2 hover:border-[#FFD84D]/60 hover:shadow-[0_15px_45px_rgba(255,122,24,0.18)] active:border-[#FFD84D]/60"
               style={vars({ "--i": i })}
             >
               {/* Top glow */}
@@ -575,12 +542,10 @@ function Why() {
             “Train the body. Sharpen the mind. Carry the tradition.”
           </p>
         </div>
-
       </div>
     </section>
   );
 }
-
 
 function Training() {
   return (
@@ -593,28 +558,22 @@ function Training() {
         aria-hidden
         className="absolute inset-0 bg-gradient-to-b from-[#160A04]/90 via-[#160A04]/80 to-[#160A04]/95"
       />
-      {/* Background image: banner, dimmed, focused on the fighter (right side) */}
+      {/* Background image: banner, dimmed */}
       <Image
         src="/coming-up.png"
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-center opacity-30 brightness-[0.5]"
+        className="object-cover object-[75%_center] brightness-[0.1] sm:object-right"
       />
-
-      <div
-        aria-hidden
-        className="absolute inset-0 bg-gradient-to-b from-[#160A04]/80 via-[#160A04]/60 to-[#160A04]/85"
-      />
-
 
       {/* Background atmosphere */}
       <div className="pointer-events-none absolute inset-0">
-        <div className="absolute left-1/2 top-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#FF7A18]/8 blur-[120px]" />
+        <div className="absolute left-1/2 top-20 h-[500px] w-[500px] -translate-x-1/2 rounded-full bg-[#FF7A18]/8 blur-[60px] sm:blur-[120px]" />
 
-        <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-[#F5C518]/5 blur-[100px]" />
+        <div className="absolute -left-32 bottom-0 h-80 w-80 rounded-full bg-[#F5C518]/5 blur-[50px] sm:blur-[100px]" />
 
-        <div className="absolute -right-32 top-1/3 h-96 w-96 rounded-full bg-[#FF7A18]/5 blur-[110px]" />
+        <div className="absolute -right-32 top-1/3 h-96 w-96 rounded-full bg-[#FF7A18]/5 blur-[55px] sm:blur-[110px]" />
 
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,166,0,0.06),transparent_45%)]" />
       </div>
@@ -709,10 +668,10 @@ function Training() {
             <div className="absolute -inset-4 rounded-full bg-[#FF7A18]/15 blur-xl transition-all duration-500 group-hover:bg-[#FF7A18]/30" />
 
             {/* Gold ring */}
-            <div className="relative rounded-full border border-[#FFD84D]/50 bg-[#120804] p-2 shadow-[0_0_35px_rgba(255,122,24,0.25)] transition-all duration-500 group-hover:scale-105 group-hover:border-[#FFD84D] group-hover:shadow-[0_0_55px_rgba(255,122,24,0.45)]">
+            <div className="relative rounded-full border border-[#FFD84D]/50 bg-[#120804] p-2 shadow-[0_0_35px_rgba(255,122,24,0.25)] transition-all duration-500 group-hover:scale-105 group-hover:border-[#FFD84D] group-hover:shadow-[0_0_55px_rgba(255,122,24,0.45)] group-active:scale-105">
               <Image
                 src="/logo.jpeg"
-                alt="Padaivedu Silambam Academy"
+                alt="Padaivedu Yudhakalam"
                 width={240}
                 height={240}
                 className="h-auto w-full rounded-full"
@@ -732,7 +691,7 @@ function Training() {
             return (
               <div
                 key={it.title}
-                className="absolute w-[16%] -translate-x-1/2 -translate-y-1/2 sm:w-[13.5%]"
+                className="absolute w-[18%] -translate-x-1/2 -translate-y-1/2 sm:w-[13.5%]"
                 style={{
                   left: `${x}%`,
                   top: `${y}%`,
@@ -741,16 +700,18 @@ function Training() {
                 <a
                   href={`#prog-${i}`}
                   aria-label={`Watch ${it.title}`}
-                  className="group relative block"
+                  data-reveal
+                  style={vars({ "--i": i })}
+                  className="group relative block active:scale-95"
                 >
                   {/* Circle */}
-                  <span className="relative block aspect-square overflow-hidden rounded-full border border-[#FF9A1F]/70 bg-[#211006] p-[3px] shadow-[0_0_0_3px_rgba(255,122,24,0.06)] transition-all duration-500 group-hover:scale-110 group-hover:border-[#FFD84D] group-hover:shadow-[0_0_30px_rgba(255,122,24,0.45)]">
+                  <span className="relative block aspect-square overflow-hidden rounded-full border border-[#FF9A1F]/70 bg-[#211006] p-[3px] shadow-[0_0_0_3px_rgba(255,122,24,0.06)] transition-all duration-500 group-hover:scale-110 group-hover:border-[#FFD84D] group-hover:shadow-[0_0_30px_rgba(255,122,24,0.45)] group-active:scale-110 group-active:border-[#FFD84D]">
                     <span className="relative block h-full w-full overflow-hidden rounded-full">
                       <Image
                         src={it.img}
                         alt={it.title}
                         fill
-                        sizes="(min-width:640px) 90px, 16vw"
+                        sizes="(min-width:640px) 90px, 18vw"
                         className="object-cover transition-transform duration-700 group-hover:scale-110"
                       />
 
@@ -764,14 +725,34 @@ function Training() {
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
-                  {/* Program name */}
-                  <span className="pointer-events-none absolute left-1/2 top-full mt-2 -translate-x-1/2 whitespace-nowrap rounded-md border border-[#FF9A1F]/20 bg-[#160A04]/90 px-2.5 py-1 text-[10px] font-medium text-[#F5E5C5] shadow-lg backdrop-blur-md sm:text-xs">
+                  {/* Program name (desktop only; mobile uses the list below) */}
+                  <span className="pointer-events-none absolute left-1/2 top-full mt-2 hidden -translate-x-1/2 whitespace-nowrap rounded-md border border-[#FF9A1F]/20 bg-[#160A04]/90 px-2.5 py-1 text-[10px] font-medium text-[#F5E5C5] shadow-lg backdrop-blur-md sm:block sm:text-xs">
                     {it.title}
                   </span>
                 </a>
               </div>
             );
           })}
+        </div>
+
+        {/* Mobile program list */}
+        <div className="mt-10 grid grid-cols-2 gap-3 sm:hidden">
+          {ITEMS.map((it, i) => (
+            <a
+              key={it.title}
+              href={`#prog-${i}`}
+              data-reveal
+              style={vars({ "--i": i })}
+              className="flex items-center gap-3 rounded-xl border border-[#FF9A1F]/30 bg-[#211006]/80 p-3 active:scale-95 active:border-[#FFD84D]"
+            >
+              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full border border-[#FF9A1F]/60 font-display text-sm text-[#FFD84D]">
+                {String(i + 1).padStart(2, "0")}
+              </span>
+              <span className="text-sm font-medium leading-tight text-[#F5E5C5]">
+                {it.title}
+              </span>
+            </a>
+          ))}
         </div>
 
         {/* Bottom instruction */}
@@ -802,7 +783,6 @@ function Training() {
 
           {/* Popup */}
           <div className="popup-card relative max-h-[90dvh] w-full max-w-lg overflow-y-auto rounded-3xl border border-[#FF9A1F]/40 bg-[#1A0C05] p-4 shadow-[0_0_60px_rgba(255,122,24,0.25)] sm:p-5">
-
             {/* Top accent */}
             <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#FF7A18] via-[#FFD84D] to-[#FF7A18]" />
 
@@ -829,7 +809,7 @@ function Training() {
 
               <a
                 href="#training"
-                className="mt-5 inline-flex items-center rounded-lg border border-[#FF9A1F]/50 bg-[#FF7A18]/10 px-6 py-2.5 text-sm font-bold text-[#FFD84D] transition-all duration-300 hover:border-[#FFD84D] hover:bg-[#FF7A18]/20"
+                className="mt-5 inline-flex items-center rounded-lg border border-[#FF9A1F]/50 bg-[#FF7A18]/10 px-6 py-2.5 text-sm font-bold text-[#FFD84D] transition-all duration-300 hover:border-[#FFD84D] hover:bg-[#FF7A18]/20 active:scale-95"
               >
                 Close
               </a>
@@ -849,12 +829,12 @@ function Training() {
           className="absolute inset-0 bg-black/85 backdrop-blur-sm"
         />
 
-        <div className="relative w-full max-w-sm overflow-hidden rounded-3xl border border-[#FF9A1F]/40 bg-[#1A0C05] p-6 text-center shadow-[0_0_60px_rgba(255,122,24,0.25)]">
+        <div className="popup-card relative max-h-[90dvh] w-full max-w-sm overflow-y-auto rounded-3xl border border-[#FF9A1F]/40 bg-[#1A0C05] p-6 text-center shadow-[0_0_60px_rgba(255,122,24,0.25)]">
           <div className="absolute left-0 right-0 top-0 h-1 bg-gradient-to-r from-[#FF7A18] via-[#FFD84D] to-[#FF7A18]" />
 
           <Image
             src="/logo.jpeg"
-            alt="Padaivedu Silambam Academy logo"
+            alt="Padaivedu Yudhakalam logo"
             width={320}
             height={320}
             className="mx-auto h-auto w-full max-w-[260px] rounded-full"
@@ -874,7 +854,7 @@ function Training() {
 
           <a
             href="#training"
-            className="mt-5 inline-flex rounded-lg border border-[#FF9A1F]/50 px-6 py-2.5 text-sm font-bold text-[#FFD84D] transition-all duration-300 hover:border-[#FFD84D] hover:bg-[#FF7A18]/10"
+            className="mt-5 inline-flex rounded-lg border border-[#FF9A1F]/50 px-6 py-2.5 text-sm font-bold text-[#FFD84D] transition-all duration-300 hover:border-[#FFD84D] hover:bg-[#FF7A18]/10 active:scale-95"
           >
             Close
           </a>
@@ -896,7 +876,7 @@ function Women() {
         alt="A woman practising Silambam with a bamboo staff on the beach at sunset"
         fill
         sizes="100vw"
-        className="object-cover object-right"
+        className="object-cover object-[75%_center] md:object-right"
       />
 
       {/* Overlay: dark on the left where the text is, clear on the right where she stands.
@@ -944,7 +924,10 @@ function Women() {
           </div>
 
           {/* Stats card */}
-          <div className="mt-10 rounded-2xl border border-ember/40 bg-[#1C120C]/70 p-6 text-center backdrop-blur-sm sm:p-8">
+          <div
+            data-reveal
+            className="mt-10 rounded-2xl border border-ember/40 bg-[#1C120C]/70 p-6 text-center backdrop-blur-sm sm:p-8"
+          >
             <h3 className="font-display text-2xl text-gold sm:text-3xl">Fearless Women</h3>
             <p className="mt-1 text-sand/90">Ancient Art, Modern Defence</p>
             <dl className="mt-8 grid grid-cols-3 gap-4 border-t border-ember/25 pt-6">
@@ -968,7 +951,6 @@ function Women() {
   );
 }
 
-
 function Achievements() {
   return (
     <section
@@ -977,11 +959,15 @@ function Achievements() {
     >
       {/* Background image – anchor the trophy to the right */}
       <div
-  className="absolute inset-0 bg-cover bg-[position:72%_center] lg:bg-right"
-  style={{ backgroundImage: "url('/win.jpg')" }}
-/>
+        className="absolute inset-0 bg-cover bg-[70%_center] lg:bg-right"
+        style={{ backgroundImage: "url('/win.jpg')" }}
+      />
 
-<div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-black/80 lg:bg-gradient-to-r lg:from-black/90 lg:via-black/50 lg:to-transparent" />
+      {/* Extra darkening on phones so the text stays readable */}
+      <div className="absolute inset-0 bg-black/45 lg:bg-transparent" />
+
+      {/* Dark only on the text side, fading to clear over the trophy */}
+      <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent lg:via-black/50" />
 
       {/* Light edge vignette instead of a full dark wash */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_70%_50%,transparent_40%,rgba(0,0,0,0.5)_100%)]" />
@@ -991,9 +977,11 @@ function Achievements() {
           <Heading className="glow-text text-white">Our proudest wins</Heading>
 
           <div className="mt-10 grid gap-5">
-            {ACHIEVEMENTS.map(([t, d]) => (
+            {ACHIEVEMENTS.map(([t, d], i) => (
               <article
                 key={t}
+                data-reveal
+                style={vars({ "--i": i })}
                 className="border-l-4 border-amber-400 bg-black/60 p-6 transition-colors duration-300 hover:bg-black/75"
               >
                 <h3 className="text-xl font-bold text-amber-300">{t}</h3>
@@ -1010,7 +998,6 @@ function Achievements() {
     </section>
   );
 }
-
 
 function Events() {
   return (
@@ -1040,9 +1027,11 @@ function Events() {
 
         {EVENTS.length ? (
           <ul className="mt-10 space-y-4">
-            {EVENTS.map(([t, d]) => (
+            {EVENTS.map(([t, d], i) => (
               <li
                 key={t}
+                data-reveal
+                style={vars({ "--i": i })}
                 className="rounded-xl border border-amber-300/40 bg-black/40 p-5 text-white backdrop-blur-sm transition-all duration-300 hover:bg-black/55"
               >
                 <b className="text-amber-300">{t}</b>
@@ -1055,6 +1044,7 @@ function Events() {
           </ul>
         ) : (
           <p
+            data-reveal
             className="
               mx-auto mt-10 max-w-xl rounded-xl
               border border-amber-300/50
@@ -1080,7 +1070,6 @@ function Events() {
   );
 }
 
-
 function Gallery() {
   const n = ITEMS.length;
 
@@ -1089,24 +1078,23 @@ function Gallery() {
       id="gallery"
       className="relative scroll-mt-20 overflow-hidden bg-[#160d08] py-20 sm:py-28"
     >
-{/* Background image: banner, dimmed, focused on the fighter (right side) */}
+      {/* Background image: banner, dimmed */}
       <Image
         src="/coming-up.png"
         alt=""
         fill
         sizes="100vw"
-        className="hidden scale-125 object-cover opacity-50 blur-2xl sm:block"
+        className="object-cover object-[75%_center] brightness-[0.1] sm:object-right"
       />
 
       {/* Background glow */}
-      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-600/10 blur-[140px]" />
+      <div className="pointer-events-none absolute left-1/2 top-1/2 h-[600px] w-[600px] -translate-x-1/2 -translate-y-1/2 rounded-full bg-orange-600/10 blur-[70px] sm:blur-[140px]" />
 
       {/* Decorative lines */}
       <div className="pointer-events-none absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-orange-400/40 to-transparent" />
       <div className="pointer-events-none absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-400/30 to-transparent" />
 
       <div className="relative z-10 mx-auto max-w-7xl px-5 sm:px-8">
-
         {/* Header */}
         <div className="mx-auto max-w-3xl text-center">
           <p className="mb-4 text-xs font-semibold uppercase tracking-[0.4em] text-orange-400">
@@ -1125,18 +1113,15 @@ function Gallery() {
 
         {/* Main showcase */}
         <div className="mx-auto mt-14 max-w-6xl">
-
           {/* Program selector */}
           <div
             role="radiogroup"
             aria-label="Silambam programs"
             className={`relative ${SELECT}`}
           >
-
             {/* Hidden radios */}
             {ITEMS.map((it, i) => (
               <div key={it.title} className="contents">
-
                 <input
                   type="radio"
                   name="programs"
@@ -1160,32 +1145,28 @@ function Gallery() {
                     peer-checked:opacity-100
                   "
                 >
-
                   <div className="grid min-h-[520px] overflow-hidden rounded-[2rem] border border-orange-300/20 bg-[#21150e] shadow-[0_30px_100px_rgba(0,0,0,0.45)] lg:grid-cols-2">
-
                     {/* IMAGE */}
                     <div className="group relative min-h-[360px] overflow-hidden lg:min-h-[520px]">
-
+                      {/* Blurred copy (desktop only, heavy on phones) */}
                       <Image
                         src={it.img}
                         alt={it.title}
                         fill
                         aria-hidden
-                        //priority={i === 0}
                         sizes="(max-width: 1024px) 100vw, 50vw"
                         style={{ objectPosition: it.pos ?? "center" }}
-                        className="scale-125 object-cover opacity-50 blur-2xl"
-                        //className="object-cover transition-transform duration-[1.5s] group-hover:scale-105"
+                        className="hidden scale-125 object-cover opacity-50 blur-2xl sm:block"
                       />
 
                       {/* Main image: auto-fits fully, never cropped */}
                       <Image
-                         src={it.img}
-                         alt={it.title}
-                         fill
-                         priority={i === 0}
-                         sizes="(max-width: 1024px) 100vw, 50vw"
-                         className="object-contain p-2 transition-transform duration-[1.5s] group-hover:scale-105 sm:p-4"
+                        src={it.img}
+                        alt={it.title}
+                        fill
+                        priority={i === 0}
+                        sizes="(max-width: 1024px) 100vw, 50vw"
+                        className="object-contain p-2 transition-transform duration-[1.5s] group-hover:scale-105 sm:p-4"
                       />
 
                       {/* Image overlay */}
@@ -1200,12 +1181,10 @@ function Gallery() {
                           Silambam Academy
                         </span>
                       </div>
-
                     </div>
 
                     {/* CONTENT */}
                     <div className="relative flex flex-col justify-center p-8 sm:p-12 lg:p-14">
-
                       {/* Number */}
                       <div className="mb-7 flex items-center gap-4">
                         <span className="text-xs tracking-[0.4em] text-orange-400">
@@ -1259,7 +1238,6 @@ function Gallery() {
 
                       {/* Actions */}
                       <div className="mt-9 flex flex-wrap items-center gap-3">
-
                         <label
                           htmlFor={`p${(i + n - 1) % n}`}
                           className="
@@ -1269,6 +1247,7 @@ function Gallery() {
                             text-lg text-amber-300
                             transition hover:border-orange-400
                             hover:bg-orange-400/10
+                            active:scale-95
                           "
                         >
                           ←
@@ -1289,6 +1268,7 @@ function Gallery() {
                             transition
                             hover:scale-105
                             hover:shadow-orange-500/40
+                            active:scale-95
                           "
                         >
                           Begin Training
@@ -1303,13 +1283,12 @@ function Gallery() {
                             text-lg text-amber-300
                             transition hover:border-orange-400
                             hover:bg-orange-400/10
+                            active:scale-95
                           "
                         >
                           →
                         </label>
-
                       </div>
-
                     </div>
                   </div>
 
@@ -1332,11 +1311,9 @@ function Gallery() {
                       />
                     ))}
                   </div>
-
                 </div>
               </div>
             ))}
-
           </div>
         </div>
 
@@ -1346,7 +1323,6 @@ function Gallery() {
             Select a discipline to explore
           </p>
         </div>
-
       </div>
     </section>
   );
@@ -1410,7 +1386,10 @@ function Join() {
       </div>
 
       {/* Card */}
-      <div className="relative z-10 mx-auto max-w-4xl rounded-2xl border border-[#FF9A1F]/40 bg-[#160A04]/70 p-8 text-center shadow-[0_0_60px_rgba(255,122,24,0.2)] backdrop-blur-md sm:p-14">
+      <div
+        data-reveal
+        className="relative z-10 mx-auto max-w-4xl rounded-2xl border border-[#FF9A1F]/40 bg-[#160A04]/70 p-8 text-center shadow-[0_0_60px_rgba(255,122,24,0.2)] backdrop-blur-md sm:p-14"
+      >
         {/* Top gold accent line */}
         <div className="absolute left-0 right-0 top-0 h-px bg-gradient-to-r from-transparent via-[#FFD84D] to-transparent" />
 
@@ -1436,7 +1415,7 @@ function Footer() {
   return (
     <footer
       id="contact"
-      className="relative scroll-mt-20 overflow-hidden bg-[#140803] pt-20"
+      className="relative scroll-mt-20 overflow-hidden bg-[#140803] pb-20 pt-20 sm:pb-0"
     >
       {/* Base warm gradient */}
       <div
@@ -1553,7 +1532,7 @@ function FloatingCall() {
     <a
       href={TEL}
       aria-label="Call the academy to enrol"
-      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-40 flex items-center gap-2 rounded-full ... sm:bottom-5 sm:right-5 ..."
+      className="fixed bottom-[max(1rem,env(safe-area-inset-bottom))] right-[max(1rem,env(safe-area-inset-right))] z-40 flex items-center gap-2 rounded-full bg-gradient-to-r from-[#FF7A1A] to-[#F5C518] px-4 py-3 text-sm font-bold text-[#1C120C] shadow-lg shadow-black/40 hover:from-[#FF8F3A] hover:to-[#FFD84D] active:scale-95 sm:bottom-5 sm:right-5 sm:px-5 sm:text-base"
     >
       <span aria-hidden>📞</span> Enroll Today
     </a>
@@ -1585,7 +1564,9 @@ export default function Home() {
       </main>
       <Footer />
       <FloatingCall />
-      <VideoController />
+      
     </>
   );
 }
+
+

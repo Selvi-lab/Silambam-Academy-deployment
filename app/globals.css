@@ -1,14 +1,5 @@
 @import "tailwindcss";
 
-/* Bonus fix: makes font-display, text-sand, from-ember, to-gold work */
-@theme inline {
-  --font-display: var(--font-yatra), serif;
-  --font-body: var(--font-hind), system-ui, sans-serif;
-  --color-ember: #ff7a18;
-  --color-gold: #f5c518;
-  --color-sand: #fff4d6;
-}
-
 :root {
   --orange: #ff6a00;
   --orange-light: #ff8a1f;
@@ -21,28 +12,46 @@
 }
 
 /* ---------- Base ---------- */
+
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 4.5rem;
-  -webkit-tap-highlight-color: rgba(255, 154, 31, 0.25);
 }
 
 body {
   margin: 0;
   max-width: 100%;
   overflow-x: clip;
+
   background:
-    radial-gradient(circle at 50% 0%, rgba(255, 184, 0, 0.35), transparent 28%),
-    radial-gradient(circle at 0% 35%, rgba(255, 106, 0, 0.28), transparent 35%),
-    radial-gradient(circle at 100% 70%, rgba(255, 184, 0, 0.18), transparent 35%),
-    linear-gradient(135deg, #241006 0%, #5a2408 25%, #8a3908 45%, #4a1b06 70%, #241006 100%);
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 184, 0, 0.35),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 0% 35%,
+      rgba(255, 106, 0, 0.28),
+      transparent 35%
+    ),
+    radial-gradient(
+      circle at 100% 70%,
+      rgba(255, 184, 0, 0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #241006 0%,
+      #5a2408 25%,
+      #8a3908 45%,
+      #4a1b06 70%,
+      #241006 100%
+    );
+
   color: var(--cream);
 }
 
-:focus-visible {
-  outline: 2px solid var(--yellow);
-  outline-offset: 3px;
-}
+/* ---------- Professional Glow ---------- */
 
 .glow-text {
   text-shadow:
@@ -51,90 +60,504 @@ body {
     0 0 40px rgba(255, 140, 31, 0.25);
 }
 
-/* ---------- Section backgrounds ---------- */
+@theme inline {
+  --font-display: var(--font-yatra);
+  --font-body: var(--font-hind);
+  --color-sand: #e9d6ae;
+  --color-ember: #ff7a18;
+  --color-gold: #f5c518;
+}
+
+/* ---------- Hero ---------- */
+
+@keyframes dust-rise {
+  from {
+    opacity: 0;
+    transform: scale(1.04);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.hero-img {
+  animation: dust-rise 1.4s ease-out both;
+}
+
+/* ---------- Focus ---------- */
+
+:focus-visible {
+  outline: 2px solid var(--yellow);
+  outline-offset: 3px;
+}
+
+/* ---------- Main Section Backgrounds ---------- */
+
 .bg-umber {
   background:
-    radial-gradient(circle at 50% 0%, rgba(255, 193, 7, 0.22), transparent 30%),
-    radial-gradient(circle at 15% 80%, rgba(255, 106, 0, 0.18), transparent 35%),
-    linear-gradient(135deg, #241006 0%, #4b1b07 45%, #2d1004 100%);
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 193, 7, 0.22),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 80%,
+      rgba(255, 106, 0, 0.18),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #241006 0%,
+      #4b1b07 45%,
+      #2d1004 100%
+    );
 }
 
 .bg-stone {
   background:
-    radial-gradient(circle at 80% 10%, rgba(255, 193, 7, 0.24), transparent 32%),
-    radial-gradient(circle at 10% 80%, rgba(255, 106, 0, 0.22), transparent 35%),
-    linear-gradient(135deg, #5a2408 0%, #7d3008 35%, #4a1905 70%, #321104 100%);
+    radial-gradient(
+      circle at 80% 10%,
+      rgba(255, 193, 7, 0.24),
+      transparent 32%
+    ),
+    radial-gradient(
+      circle at 10% 80%,
+      rgba(255, 106, 0, 0.22),
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #5a2408 0%,
+      #7d3008 35%,
+      #4a1905 70%,
+      #321104 100%
+    );
 }
 
-.bg-sunset {
-  background-image:
-    linear-gradient(to bottom, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.65), rgba(42, 14, 4, 0.9)),
-    url("/sunset.jpg");
-  background-size: cover;
-  background-position: center bottom;
-  background-repeat: no-repeat;
+/* ---------- Section Glow ---------- */
+
+section {
+  position: relative;
 }
 
-/* ---------- Animations ---------- */
+section::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
 
-/* Hero (no blur: heavy on phones) */
-@keyframes dust-rise {
-  from { opacity: 0; transform: scale(1.04); }
-  to   { opacity: 1; transform: scale(1); }
+  background:
+    radial-gradient(
+      circle at 50% 0%,
+      rgba(255, 193, 7, 0.08),
+      transparent 35%
+    );
+
+  opacity: 1;
 }
-.hero-img { animation: dust-rise 1.2s ease-out both; }
 
-/* Rotating dashed ring */
-@keyframes orbit-spin {
-  to { transform: rotate(360deg); }
+/* ---------- Professional Cards ---------- */
+
+@keyframes why-rise {
+  from {
+    opacity: 0;
+    transform: translateY(40px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
 }
-.spin-ring { animation: orbit-spin 90s linear infinite; }
 
-/* Popup card */
-@keyframes pop-in {
-  from { opacity: 0; transform: translateY(20px) scale(0.96); }
-  to   { opacity: 1; transform: none; }
-}
-.popup-card { animation: pop-in 0.35s ease-out both; }
+.why-card {
+  position: relative;
+  overflow: hidden;
 
-/* Scroll reveal: added by MobileFx.tsx */
-[data-reveal] {
-  opacity: 0;
-  transform: translateY(28px);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 106, 0, 0.18),
+      rgba(255, 193, 7, 0.08),
+      rgba(36, 16, 6, 0.75)
+    );
+
+  border: 1px solid rgba(255, 193, 7, 0.38);
+
   transition:
-    opacity 0.7s ease,
-    transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
-  transition-delay: calc(var(--i, 0) * 90ms);
+    transform 0.3s ease,
+    border-color 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
-[data-reveal="pop"] {
-  transform: scale(0.4);
+
+.why-card::before {
+  content: "";
+
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+
+  height: 3px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      #ff6a00,
+      #f5c518,
+      #ffd84d,
+      #f5c518,
+      #ff6a00,
+      transparent
+    );
+
+  transform: scaleX(0);
+  transition: transform 0.45s ease;
 }
-[data-reveal].is-visible {
+
+.why-card:hover {
+  transform: translateY(-7px);
+
+  border-color: rgba(255, 216, 77, 0.85);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(255, 106, 0, 0.28),
+      rgba(255, 193, 7, 0.14),
+      rgba(36, 16, 6, 0.65)
+    );
+
+  box-shadow:
+    0 15px 35px rgba(255, 106, 0, 0.25),
+    0 0 30px rgba(255, 193, 7, 0.12);
+}
+
+.why-card:hover::before {
+  transform: scaleX(1);
+}
+
+/* ---------- Scroll Animation (old, CSS only) ---------- */
+
+@media (prefers-reduced-motion: no-preference) {
+  .why-card {
+    animation:
+      why-rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1)
+      backwards;
+
+    animation-delay: calc(var(--i, 0) * 100ms);
+  }
+
+  @supports (animation-timeline: view()) {
+    .why-card {
+      animation: why-rise linear backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 55%;
+      animation-delay: 0s;
+    }
+  }
+}
+
+/* ---------- Orange / Yellow Buttons ---------- */
+
+.orange-gold-btn {
+  border: 2px solid #ff9a1f;
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff6a00,
+      #ff9f1c,
+      #f5c518
+    );
+
+  color: #241006;
+
+  box-shadow:
+    0 0 18px rgba(255, 106, 0, 0.4),
+    0 0 35px rgba(245, 197, 24, 0.2);
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    filter 0.25s ease;
+}
+
+.orange-gold-btn:hover {
+  transform: translateY(-2px);
+
+  background:
+    linear-gradient(
+      90deg,
+      #ff8a1f,
+      #ffd84d,
+      #fff08a
+    );
+
+  box-shadow:
+    0 0 25px rgba(255, 106, 0, 0.55),
+    0 0 45px rgba(245, 197, 24, 0.3);
+}
+
+/* ---------- Training Ring ---------- */
+
+.orbit-item {
+  --a: calc(var(--n) * 36deg - 90deg);
+  --near: clamp(
+    0,
+    1 - abs(var(--n) - var(--sel)),
+    1
+  );
+
+  left: calc(
+    50% + 36% * cos(var(--a))
+  );
+
+  top: calc(
+    50% + 40% * sin(var(--a))
+  );
+
+  z-index: calc(
+    10 + 5 * var(--near)
+  );
+
+  transform:
+    translate(-50%, -50%)
+    scale(
+      calc(0.85 + 0.3 * var(--near))
+    );
+
+  box-shadow:
+    0 0 calc(30px * var(--near))
+    calc(4px * var(--near))
+    rgb(255 138 31 / 0.6);
+
+  transition:
+    transform 0.6s ease,
+    box-shadow 0.6s ease;
+}
+
+/* ---------- Training Centre Card ---------- */
+
+.panel .card {
+  left: 50%;
+  top: 50%;
+
+  opacity: 0;
+
+  transform:
+    translate(-50%, -42%)
+    translateY(28px)
+    scale(0.92);
+
+  transition:
+    transform 0.7s cubic-bezier(0.2, 0.8, 0.2, 1),
+    opacity 0.5s ease;
+}
+
+.peer:checked + .panel .card {
+  opacity: 1;
+
+  transform:
+    translate(-50%, -42%);
+}
+
+.panel .rise {
+  opacity: 0;
+  transform: translateY(12px);
+
+  transition:
+    opacity 0.5s ease,
+    transform 0.6s cubic-bezier(0.2, 0.8, 0.2, 1);
+
+  transition-delay:
+    calc(var(--d, 0) * 80ms + 150ms);
+}
+
+.peer:checked + .panel .rise {
   opacity: 1;
   transform: none;
 }
 
-/* ---------- Phones: lighter effects so scrolling stays smooth ---------- */
-@media (max-width: 639px) {
-  [class*="backdrop-blur"] {
-    -webkit-backdrop-filter: none;
-    backdrop-filter: none;
+/* ---------- Ember Particles ---------- */
+
+@keyframes ember {
+  0% {
+    transform:
+      translateY(0)
+      scale(0.6);
+
+    opacity: 0;
   }
-  [class*="blur-["] {
-    filter: blur(40px);
+
+  15% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform:
+      translateY(-260px)
+      scale(1);
+
+    opacity: 0;
   }
 }
 
-/* ---------- Reduced motion (phone setting) ---------- */
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .hero-img,
-  .popup-card,
-  .spin-ring { animation: none; }
-  [data-reveal],
-  [data-reveal="pop"] {
+.ember {
+  animation:
+    ember var(--dur, 8s)
+    ease-in infinite;
+
+  animation-delay:
+    var(--del, 0s);
+}
+
+/* ---------- Rotating Ring ---------- */
+
+@keyframes orbit-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.spin-ring {
+  animation:
+    orbit-spin 90s
+    linear infinite;
+}
+
+/* ---------- Golden Borders ---------- */
+
+.gold-border {
+  border: 1px solid
+    rgba(255, 216, 77, 0.5);
+
+  box-shadow:
+    0 0 20px
+    rgba(255, 106, 0, 0.15),
+    inset 0 0 20px
+    rgba(255, 193, 7, 0.04);
+}
+
+/* ---------- Section Divider ---------- */
+
+.section-glow {
+  height: 2px;
+
+  background:
+    linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 106, 0, 0.65),
+      rgba(245, 197, 24, 0.95),
+      rgba(255, 216, 77, 0.8),
+      rgba(255, 106, 0, 0.65),
+      transparent
+    );
+
+  box-shadow:
+    0 0 18px
+    rgba(255, 106, 0, 0.4);
+}
+
+/* ---------- Scroll reveal (works on touch phones) ---------- */
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(28px);
+  }
+
+  to {
     opacity: 1;
     transform: none;
+  }
+}
+
+.reveal:not(.is-visible) {
+  opacity: 0;
+}
+
+.reveal.is-visible {
+  animation: reveal-up 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) backwards;
+  animation-delay: calc(var(--i, 0) * 100ms);
+}
+
+/* ---------- Popup entrance ---------- */
+
+@keyframes pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.popup-card {
+  animation: pop-in 0.35s ease-out both;
+}
+
+/* ---------- Phones: no heavy backdrop blur ---------- */
+
+@media (max-width: 639px) {
+  [class*="backdrop-blur"] {
+    -webkit-backdrop-filter: none !important;
+    backdrop-filter: none !important;
+  }
+}
+
+/* ---------- Reduced Motion ---------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .hero-img {
+    animation: none;
+  }
+
+  .orbit-item,
+  .panel .card,
+  .panel .rise {
     transition: none;
   }
+
+  .ember {
+    animation: none;
+  }
+
+  .reveal:not(.is-visible) {
+    opacity: 1;
+  }
+
+  .reveal.is-visible,
+  .popup-card {
+    animation: none;
+  }
+
+  .why-card,
+  .why-card::before {
+    transition: none;
+  }
+
+  .why-card:hover {
+    transform: none;
+  }
+}
+
+.bg-sunset {
+  background-image:
+    linear-gradient(to bottom, rgba(0,0,0,0.55), rgba(0,0,0,0.65), rgba(42,14,4,0.9)),
+    url("/sunset.jpg");
+  background-size: cover;
+  background-position: center bottom;
+  background-repeat: no-repeat;
 }
