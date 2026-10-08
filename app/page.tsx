@@ -584,7 +584,7 @@ function Training() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-right brightness-[0.1]"
+        className="object-cover object-right brightness-[0.5]"
       />
 
 
@@ -1075,7 +1075,7 @@ function Gallery() {
         alt=""
         fill
         sizes="100vw"
-        className="object-cover object-right brightness-[0.1]"
+        className="object-cover object-right brightness-[0.5]"
       />
 
       {/* Background glow */}
