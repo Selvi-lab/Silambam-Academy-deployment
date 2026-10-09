@@ -961,7 +961,7 @@ function Achievements() {
       <div
         //className="absolute inset-0 bg-cover bg-[70%_center] lg:bg-right"
         className="achievement-bg absolute inset-0 bg-cover lg:bg-right"
-        style={{ backgroundImage: "url('/win-1.jpg')" }}
+        style={{ backgroundImage: "url('/win-1.png')" }}
       />
 
       {/* Extra darkening on phones so the text stays readable */}
