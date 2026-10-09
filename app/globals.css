@@ -567,7 +567,7 @@ section::before {
    MOBILE BACKGROUND IMAGE FIX
    Keeps important people, fighters and trophies visible
    ========================================================= */
-{/*
+/*
 @media (max-width: 639px) {
   /* Hero *
   .hero-bg {
@@ -604,7 +604,7 @@ section::before {
     background-position: 78% center !important;
     background-size: cover !important;
   }
-}*/}
+}*/
 
 /* Tablet */
 @media (min-width: 640px) and (max-width: 1023px) {
@@ -633,7 +633,7 @@ section::before {
   }
 
   .achievement-bg {
-    background-position: 70% right !important;
+    background-position: 60% right !important;
     background-size: cover !important;
   }
 }
