@@ -959,12 +959,13 @@ function Achievements() {
     >
       {/* Background image – anchor the trophy to the right */}
       <div
-        className="absolute inset-0 bg-cover bg-[70%_center] lg:bg-right"
+        //className="absolute inset-0 bg-cover bg-[70%_center] lg:bg-right"
+        className="achievement-bg absolute inset-0 bg-cover lg:bg-right"
         style={{ backgroundImage: "url('/win.jpg')" }}
       />
 
       {/* Extra darkening on phones so the text stays readable */}
-      <div className="absolute inset-0 bg-black/45 lg:bg-transparent" />
+      <div className="absolute inset-0 bg-black/30 lg:bg-transparent" />//45
 
       {/* Dark only on the text side, fading to clear over the trophy */}
       <div className="absolute inset-0 bg-gradient-to-r from-black/90 via-black/60 to-transparent lg:via-black/50" />
