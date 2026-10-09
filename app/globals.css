@@ -633,7 +633,7 @@ section::before {
   }
 
   .achievement-bg {
-    background-position: 60% right !important;
+    background-position: 45% right !important;
     background-size: cover !important;
   }
 }
