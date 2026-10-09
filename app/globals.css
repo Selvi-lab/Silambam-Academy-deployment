@@ -567,44 +567,44 @@ section::before {
    MOBILE BACKGROUND IMAGE FIX
    Keeps important people, fighters and trophies visible
    ========================================================= */
-
+{/*
 @media (max-width: 639px) {
-  /* Hero */
+  /* Hero *
   .hero-bg {
     object-position: 52% center !important;
   }
 
-  /* About */
+  /* About *
   .about-bg {
     object-position: 68% center !important;
   }
 
-  /* Why */
+  /* Why *
   .why-bg {
     object-position: 72% center !important;
   }
 
-  /* Training */
+  /* Training *
   .training-bg {
     object-position: 65% center !important;
   }
 
-  /* Women's section */
+  /* Women's section *
   .women-bg {
     object-position: 72% center !important;
   }
 
-  /* Gallery */
+  /* Gallery *
   .gallery-bg {
     object-position: 65% center !important;
   }
 
-  /* Achievement trophy */
+  /* Achievement trophy *
   .achievement-bg {
     background-position: 78% center !important;
     background-size: cover !important;
   }
-}
+}*/}
 
 /* Tablet */
 @media (min-width: 640px) and (max-width: 1023px) {
@@ -633,7 +633,7 @@ section::before {
   }
 
   .achievement-bg {
-    background-position: 70% center !important;
+    background-position: 70% right !important;
     background-size: cover !important;
   }
 }
